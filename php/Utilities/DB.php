@@ -19,7 +19,7 @@ class DB
       case "localhost":
         $this->connection = new MySQLi("localhost", "root", "", "btif");
         break;
-      case "balltillifall":
+      case "btif.anklebreaker.ca":
         $this->connection = new MySQLi("localhost", "anklhtor_btif", ".61u?]thdf]U", "anklhtor_btif");
         break;
     }

@@ -34,6 +34,7 @@
                       <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="javascript:void(0)">Night league</a>
                       <ul class="dropdown-menu dd_first">
                         <li><a href="index#pricing">Register</a></li>
+                        <li><a href="teams">Teams</a></li>
                         <li><a href="schedule">Schedule</a></li>
                         <li><a href="rules">Rules</a></li>
                       </ul>

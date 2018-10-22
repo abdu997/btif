@@ -49,7 +49,7 @@ ul.nav-tabs .nav-item .nav-link.active {
 }
 
 .hover-overlay.effect-scale:before, .media.blog-media > a:before {
-  background-color: rgba(5, 86, 155, 0.7) !important;
+  background-color: #B10E0E;
 }
 
 .tp-caption.rev-btn, .tp-caption.tp-svg-layer {

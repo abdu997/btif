@@ -1,3 +1,2 @@
 RewriteEngine On
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
-DirectoryIndex index.php
+RewriteRule ^([^\.]+)$ $1.php [L]
