@@ -16,7 +16,7 @@ class Router
     DB::sanitize();
     $allowed_hostnames = [
       "http://localhost",
-      "http://balltillifall.ca"
+      "http://btif.anklebreaker.ca"
     ];
     if(isset(apache_request_headers()['Origin'])){
       if(in_array(apache_request_headers()['Origin'], $allowed_hostnames)){
