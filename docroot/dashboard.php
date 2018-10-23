@@ -22,7 +22,7 @@ if(!isset($_SESSION['admin_id'])){
 									<button class="tablinks" ng-click="getTeams()" onclick="openCity(event, 'Teams')">Teams</button>
 									<button class="tablinks" ng-click="getSchedule()" onclick="openCity(event, 'Schedule')">Schedule</button>
 									<button class="tablinks" ng-click="adminGetPlayers()" onclick="openCity(event, 'Players')">Players</button>
-									<button class="tablinks" ng-click="getUnpaid()" onclick="openCity(event, 'Paypal')">Paypal</button>
+									<button class="tablinks" ng-click="getUnpaid()" onclick="openCity(event, 'Registrar')">Registrar</button>
 									<button ng-click="logout()" style="background: red; color: white;" class="tablinks">Logout</button>
 							</div>
 						</div>
@@ -245,7 +245,7 @@ if(!isset($_SESSION['admin_id'])){
                     </div>
                 </section>
             </div>
-						<div id="Paypal" class="tabcontent">
+						<div id="Registrar" class="tabcontent">
 								<section ng-init="getUnpaid()" class=" bg-sand">
 										<div class="container">
 												<div class="row">
