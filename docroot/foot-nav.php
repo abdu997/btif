@@ -10,7 +10,7 @@
                     <div class="social-icons">
                         <a target="_blank" href="http://www.facebook.com/balltillifallinc/" class="btn btn-social btn-social-o facebook"> <i class="fa fa-facebook-f"></i> </a>
                         <a target="_blank" href="http://www.twitter.com/balltillifallCA/" class="btn btn-social btn-social-o"> <i class="fa fa-twitter"></i> </a>
-                        <a target="_blank" href="https://www.instagram.com/balltillifalllcanada/" class="btn btn-social btn-social-o"> <i class="fa fa-instagram"></i> </a>
+                        <a target="_blank" href="https://www.instagram.com/balltillifallcanada/" class="btn btn-social btn-social-o"> <i class="fa fa-instagram"></i> </a>
                     </div>
                 </div>
             </div>
