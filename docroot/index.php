@@ -75,21 +75,9 @@
 										</div>
 									</div>
 									<div class="form-group row">
-										<label class="col-md-2 col-form-label">Address</label>
-										<div class="col-md-10">
-											<input class="form-control" type="text" placeholder="Player Address" id="addressJoinTeam">
-										</div>
-									</div>
-									<div class="form-group row">
 										<label class="col-md-2 col-form-label">Email</label>
 										<div class="col-md-10">
 											<input class="form-control" type="email" placeholder="Player Email Address" id="emailJoinTeam">
-										</div>
-									</div>
-									<div class="form-group row">
-										<label class="col-md-2 col-form-label">Phone Number</label>
-										<div class="col-md-10">
-											<input class="form-control" type="text" id="phoneNumberJoinTeam" placeholder="###-###-####">
 										</div>
 									</div>
 									<div class="form-group row">

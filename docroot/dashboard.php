@@ -193,10 +193,6 @@ if(!isset($_SESSION['admin_id'])){
                                     <input type="text" id="lastNamePlayer" class="form-control" autofocus>
                                     <label>Player email</label>
                                     <input type="email" id="emailPlayer" class="form-control" autofocus>
-                                    <label>Player Phone Number</label>
-                                    <input type="text" id="phoneNumberPlayer" class="form-control" autofocus>
-                                    <label>Player Address</label>
-                                    <input type="text" id="addressPlayer" class="form-control" autofocus>
                                     <label>Team</label>
                                     <select ng-model="team_select" id="playerTeam" ng-change="scheduleTeamSelect()" class="form-control">
                                         <option ng-repeat="x in teams" value="{{x.team_id}}">{{x.team_name}}</option>
@@ -214,8 +210,6 @@ if(!isset($_SESSION['admin_id'])){
                                             <th>Player ID</th>
                                             <th>Player Name</th>
                                             <th>Email</th>
-                                            <th>Address</th>
-                                            <th>Phone Number</th>
                                             <th>Player #</th>
                                             <th>Team</th>
                                             <th></th>
@@ -226,12 +220,10 @@ if(!isset($_SESSION['admin_id'])){
                                                 <td>{{x.player_id}}</td>
                                                 <td>{{x.first_name}} {{x.last_name}}</td>
                                                 <td>{{x.email}}</td>
-                                                <td>{{x.address}}</td>
-                                                <td>{{x.phone_number}}</td>
                                                 <td>{{x.player_number}}</td>
                                                 <td>{{x.team_name}}</td>
                                                 <td>
-                                                    <button ng-click="adminEditPlayer(x.player_id, x.first_name, x.last_name, x.email, x.address, x.phone_number, x.player_number, x.team_id)">edit</button>
+                                                    <button ng-click="adminEditPlayer(x.player_id, x.first_name, x.last_name, x.email, x.player_number, x.team_id)">edit</button>
                                                 </td>
                                                 <td>
                                                     <button ng-click="adminDeletePlayer(x.player_id)">delete</button>
@@ -257,9 +249,7 @@ if(!isset($_SESSION['admin_id'])){
 																						<th>Record ID</th>
 																						<th>First Name</th>
 																						<th>Last Name</th>
-																						<th>Address</th>
 																						<th>Email</th>
-																						<th>Phone Number</th>
 																						<th>Team Name</th>
 																						<th>Player Number</th>
 																						<th>Order type</th>
@@ -272,9 +262,7 @@ if(!isset($_SESSION['admin_id'])){
 																								<td>{{x.record_id}}</td>
 																								<td>{{x.first_name}}</td>
 																								<td>{{x.last_name}}</td>
-																								<td>{{x.address}}</td>
 																								<td>{{x.email}}</td>
-																								<td>{{x.phone_number}}</td>
 																								<td>{{x.team_name}}</td>
 																								<td>{{x.player_number}}</td>
 																								<td>{{x.order_type}}</td>

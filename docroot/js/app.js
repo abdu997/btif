@@ -44,9 +44,7 @@ app.controller('leagueController', function($scope, $http) {
   $scope.joinTeam = function() {
     var firstName = document.getElementById("firstNameJoinTeam").value;
     var lastName = document.getElementById("lastNameJoinTeam").value;
-    var address = document.getElementById("addressJoinTeam").value;
     var email = document.getElementById("emailJoinTeam").value;
-    var phoneNumber = document.getElementById("phoneNumberJoinTeam").value;
     var teamId = document.getElementById("teamJoinTeam").value;
     var playerNumber = document.getElementById("playerNumberJoinTeam").value;
     var waiver = document.getElementById("joinTeamWaiver").checked;
@@ -62,10 +60,6 @@ app.controller('leagueController', function($scope, $http) {
       errorReporting("Last name cannot be empty");
       return;
     }
-    if (address.length === 0) {
-      errorReporting("Address cannot be empty");
-      return;
-    }
     if (email.length === 0) {
       errorReporting("Email cannot be empty");
       return;
@@ -78,10 +72,6 @@ app.controller('leagueController', function($scope, $http) {
       errorReporting("Player number cannot be larger than 10");
       return;
     }
-    if (phoneNumber.length < 10 || phoneNumber.length > 12) {
-      errorReporting("Please provide your 10 digit phone number");
-      return;
-    }
     if(!waiver){
       errorReporting("You must agree to the waiver");
       return;
@@ -90,9 +80,7 @@ app.controller('leagueController', function($scope, $http) {
     $http.post($scope.apiRoot + "joinTeam", {
       first_name: firstName,
       last_name: lastName,
-      address: address,
       email: email,
-      phone_number: phoneNumber,
       team_id: teamId,
       team_name: null,
       player_number: playerNumber
@@ -303,8 +291,6 @@ app.controller('leagueController', function($scope, $http) {
       first_name: document.getElementById("firstNamePlayer").value,
       last_name: document.getElementById("lastNamePlayer").value,
       email: document.getElementById("emailPlayer").value,
-      address: document.getElementById("addressPlayer").value,
-      phone_number: document.getElementById("phoneNumberPlayer").value,
       team_id: document.getElementById("playerTeam").value,
       player_number: document.getElementById("playerNumber").value
     }).success(function(data){
@@ -318,14 +304,12 @@ app.controller('leagueController', function($scope, $http) {
     })
   }
 
-  $scope.adminEditPlayer = function(player_id, first_name, last_name, email, address, phone_number, player_number, team_id){
+  $scope.adminEditPlayer = function(player_id, first_name, last_name, email, player_number, team_id){
     $scope.player_id = player_id;
     $scope.adminPlayerBtn = "Edit";
     document.getElementById("firstNamePlayer").value = first_name;
     document.getElementById("lastNamePlayer").value = last_name;
     document.getElementById("emailPlayer").value = email;
-    document.getElementById("addressPlayer").value = address;
-    document.getElementById("phoneNumberPlayer").value = phone_number;
     document.getElementById("playerTeam").value = team_id;
     document.getElementById("playerNumber").value = player_number;
   }

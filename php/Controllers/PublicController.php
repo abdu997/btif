@@ -35,15 +35,13 @@ class PublicController
   	$action = "createTeam";
   	$first_name = $_POST['first_name'];
   	$last_name = $_POST['last_name'];
-  	$address = $_POST['address'];
-  	$phone_number = $_POST['phone_number'];
   	$team_id = $_POST['team_id'];
   	$team_name = $_POST['team_name'];
   	$email = $_POST['email'];
   	$player_number = $_POST['player_number'];
 
   	if (Functions::team_leader_check($email) && Functions::team_name_check($team_name)){
-  		return Functions::createUnpaidOrder($action, $first_name, $last_name, $address, $phone_number, $team_id, $team_name, $email, $player_number);
+  		return Functions::createUnpaidOrder($action, $first_name, $last_name, $team_id, $team_name, $email, $player_number);
   	} else {
   		return Functions::team_leader_check($email);
   		return Functions::team_name_check($team_name);
@@ -54,14 +52,12 @@ class PublicController
   	$action = "joinTeam";
   	$first_name = $_POST['first_name'];
   	$last_name = $_POST['last_name'];
-  	$address = $_POST['address'];
-  	$phone_number = $_POST['phone_number'];
   	$team_id = $_POST['team_id'];
   	$team_name = $_POST['team_name'];
   	$email = $_POST['email'];
   	$player_number = $_POST['player_number'];
   	if (Functions::team_leader_check($email) && Functions::team_name_check($team_name)){
-  		return Functions::createUnpaidOrder($action, $first_name, $last_name, $address, $phone_number, $team_id, $team_name, $email, $player_number);
+  		return Functions::createUnpaidOrder($action, $first_name, $last_name, $team_id, $team_name, $email, $player_number);
   	} else {
   		return Functions::team_leader_check($email);
   		return Functions::team_name_check($team_name);

@@ -266,7 +266,7 @@ class Functions
 		}
 	}
 
-	public static function adminCreatePlayer($player_first_name, $player_last_name, $email, $address, $phone_number, $team_id, $player_number, $record_id = null) {
+	public static function adminCreatePlayer($player_first_name, $player_last_name, $email, $team_id, $player_number, $record_id = null) {
 
 		if(!isset($_SESSION['record_id'])){
 			if(!self::uniquePlayerNumber($team_id, $player_number, $record_id)){
@@ -276,7 +276,7 @@ class Functions
 				return ['status' => 'error', 'message' => 'This team has already reached the limit of 10 players'];
 			}
 		}
-		$sql = "INSERT INTO players(first_name, last_name, email, address, phone_number) VALUES('$player_first_name', '$player_last_name', '$email', '$address', '$phone_number')";
+		$sql = "INSERT INTO players(first_name, last_name, email) VALUES('$player_first_name', '$player_last_name', '$email')";
 		if(mysqli_query(DB::connect(), $sql)){
 			$player_id = mysqli_insert_id(DB::connect());
 			return self::createTeamPlayerConnection(mysqli_insert_id(DB::connect()), $player_number, $team_id);
@@ -346,11 +346,11 @@ class Functions
 		return mysqli_fetch_array($result);
 	}
 
-	public static function adminUpdatePlayer($player_id, $player_first_name, $player_last_name, $email, $address, $phone_number, $team_id, $player_number){
+	public static function adminUpdatePlayer($player_id, $player_first_name, $player_last_name, $email, $team_id, $player_number){
 		if(self::fetchTeamInfo($team_id)[0]['team_count'] >= 10){
 			return ['status' => 'error', 'message' => 'This team has already reached the limit of 10 players'];
 		}
-		$sql = "UPDATE players SET first_name = '$player_first_name', last_name = '$player_last_name', email = '$email', address = '$address', phone_number = '$phone_number' WHERE player_id = '$player_id'";
+		$sql = "UPDATE players SET first_name = '$player_first_name', last_name = '$player_last_name', email = '$email' WHERE player_id = '$player_id'";
 		if(mysqli_query(DB::connect(), $sql)){
 			return self::changePlayerTeam($player_id, $team_id, $player_number);
 		}
@@ -381,7 +381,7 @@ class Functions
 		}
 	}
 
-	public static function createUnpaidOrder($action, $first_name, $last_name, $address, $phone_number, $team_id, $team_name, $email, $player_number){
+	public static function createUnpaidOrder($action, $first_name, $last_name, $team_id, $team_name, $email, $player_number){
 		$timestamp = DB::timestamp();
 		if($action === "createTeam"){
 			if(!self::uniqueTeamName($team_name)){
@@ -390,7 +390,7 @@ class Functions
 			if(self::fetchTeamInfo($team_id)[0]['team_count'] >= 10){
 				return ['status' => 'error', 'message' => 'This team has already reached the limit of 10 players'];
 			}
-			$sql = "INSERT INTO unpaid_memberships(first_name, last_name, address, email, phone_number, team_name, order_type, timestamp, player_number) VALUES('$first_name', '$last_name', '$address', '$email', '$phone_number', '$team_name', '$action', '$timestamp', '$player_number')";
+			$sql = "INSERT INTO unpaid_memberships(first_name, last_name, email, team_name, order_type, timestamp, player_number) VALUES('$first_name', '$last_name', '$email', '$team_name', '$action', '$timestamp', '$player_number')";
 			if(mysqli_query(DB::connect(), $sql)){
 				$_SESSION['record_id'] = mysqli_insert_id(DB::connect());
 				return ['status' => 'success'];
@@ -399,7 +399,7 @@ class Functions
 			if(!self::uniquePlayerNumber($team_id, $player_number)){
 				return ['status' => 'error', 'message' => 'The player number you chose has been taken'];
 			}
-			$sql = "INSERT INTO unpaid_memberships(first_name, last_name, address, email, phone_number, team_id, order_type, player_number) VALUES('$first_name', '$last_name', '$address', '$email', '$phone_number', '$team_id', '$action', '$player_number')";
+			$sql = "INSERT INTO unpaid_memberships(first_name, last_name, email, team_id, order_type, player_number) VALUES('$first_name', '$last_name', '$email', '$team_id', '$action', '$player_number')";
 			if(mysqli_query(DB::connect(), $sql)){
 				$_SESSION['record_id'] = mysqli_insert_id(DB::connect());
 				return ['status' => 'success'];
@@ -456,8 +456,6 @@ class Functions
 		$record = self::getRecord($record_id);
 		$first_name = $record['first_name'];
 		$last_name = $record['last_name'];
-		$address = $record['address'];
-		$phone_number = $record['phone_number'];
 		$team_name = $record['team_name'];
 		$email = $record['email'];
 		$player_number = $record['player_number'];
@@ -473,7 +471,7 @@ class Functions
 		} else {
 		  $team_id = $record['team_id'];
 		}
-		$createPlayer = self::adminCreatePlayer($first_name, $last_name, $email, $address, $phone_number, $team_id, $player_number, $record_id);
+		$createPlayer = self::adminCreatePlayer($first_name, $last_name, $email, $team_id, $player_number, $record_id);
 		if($createPlayer['status'] === "success"){
 			if(self::adminPaidUnpaid($record['record_id'])['status'] === "success"){
 				if(isset($_SESSION['record_id']) || !isset($_SESSION['admin_id'])){
