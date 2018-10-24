@@ -36,7 +36,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12" style="color: black">
-                      
+                      <iframe style="width: 100%; height: 100%;" src="https://form.jotform.com/82946191672264">
+                      </iframe>
                     </div>
                 </div>
             </div>
