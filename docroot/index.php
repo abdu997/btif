@@ -117,6 +117,30 @@
 				</div>
 			</div>
 
+			<div class="b-element">
+				<div class="main-wrapper">
+		      <section style="">
+						<div class="bg-image-holder bredcrumb bg-primary">
+								<!-- style="background-image: url('img/promo-1.jpg');" -->
+								<div class="container">
+										<div class="row">
+												<div class="col-md-8">
+													<h2>Announcements</h2>
+														<hr class="hr_narrow  hr_color">
+														<p><strong>Registration NOW OPEN</strong>
+															<br>
+															Youth Basketball Saturdays Canterbury 3:30-5:30
+															<br>
+															Night League Lees Gym Saturdays 7- Midnight
+														</p>
+												</div>
+										</div>
+								</div>
+								<!-- container ends -->
+						</div>
+		      </section>
+				</div>
+			</div>
 			<section class="bg-sand hero-block home-about" id="home-about">
 				<div class="container">
 					<div class="row">
