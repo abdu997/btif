@@ -6,7 +6,7 @@
 
 ;window.RevColor = {
 	
-	defaultValue: '#222222',
+	defaultValue: '#ffffff',
 	isColor: /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i,
 	
 	get: function(val) {
@@ -427,7 +427,7 @@
 	
 	var defColors = [
 	
-		'#222222', 
+		'#FFFFFF', 
 		'#000000', 
 		'#FF3A2D', 
 		'#007AFF', 
@@ -535,7 +535,7 @@
 							
 							'<div class="rev-cpicker-iris">' + 
 							
-								'<input id="rev-cpicker-iris-color" class="rev-cpicker-iris-input" value="#222222" />' + 
+								'<input id="rev-cpicker-iris-color" class="rev-cpicker-iris-input" value="#ffffff" />' + 
 								
 								'<div id="rev-cpicker-scroller" class="iris-slider iris-strip">' +
 									'<div id="rev-cpicker-scroll-bg"></div>' + 
@@ -572,7 +572,7 @@
 							
 								'<span data-text="color_hex_value"></span>' + 
 								'<br>' + 
-								'<input type="text" id="rev-cpicker-color-hex" class="rev-cpicker-input rev-cpicker-hex" value="#222222" />' + 
+								'<input type="text" id="rev-cpicker-color-hex" class="rev-cpicker-input rev-cpicker-hex" value="#ffffff" />' + 
 								'<br>' + 
 								'<span data-text="opacity" class="rev-cpicker-hideable"></span>' +
 								'<br>' + 
@@ -723,13 +723,13 @@
 		
 			'<div class="rev-cpicker-iris">' + 
 							
-				'<input id="rev-cpicker-iris-gradient" class="rev-cpicker-iris-input" value="#222222" />' + 
+				'<input id="rev-cpicker-iris-gradient" class="rev-cpicker-iris-input" value="#ffffff" />' + 
 			
 			'</div>' + 
 			
 			'<div class="rev-cpicker-fields">' + 
 			
-				'<input type="text" id="rev-cpicker-gradient-hex" class="rev-cpicker-input rev-cpicker-hex" value="#222222" />' + 
+				'<input type="text" id="rev-cpicker-gradient-hex" class="rev-cpicker-input rev-cpicker-hex" value="#ffffff" />' + 
 				'<span id="rev-cpciker-clear-gradient" class="rev-cpicker-btn rev-cpicker-btn-small rev-cpciker-clear" data-text="clear"></span>' + 
 				'<span id="rev-cpicker-check-gradient" class="rev-cpicker-btn"></span>' + 
 				
@@ -1798,7 +1798,7 @@
 		dragObj.stop = onDragStop;
 		dragObj.start = onDragStart;
 		
-		colorBtn.data('state', colorSection.find('.rev-cpicker-color').eq(0).attr('data-color') || '#222222');
+		colorBtn.data('state', colorSection.find('.rev-cpicker-color').eq(0).attr('data-color') || '#ffffff');
 		gradBtn.data('state', gradSection.find('.rev-cpicker-color').eq(0).attr('data-color') || 'linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 100%)');
 		
 		mainContainer.draggable({containment: 'window', handle: '.rev-cpicker-draggable', stop: function() {
@@ -2028,7 +2028,7 @@
 					
 					if(isTransparent) {
 						
-						val = opacity ? '#222222' : 'transparent';
+						val = opacity ? '#ffffff' : 'transparent';
 						colorHex.val(val);
 						
 					}

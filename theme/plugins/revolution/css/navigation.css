@@ -478,7 +478,7 @@ visibility:visible;
   background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#222222", endColorstr="#777777", GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
  
       }
 .dione .tp-bullet-title:after {
@@ -819,15 +819,15 @@ website:    http://www.themepunch.com
 }
 .gyges .tp-bullet:hover,
 .gyges .tp-bullet.selected {
-	background: #222222; /* Old browsers */
-    background: -moz-linear-gradient(top,  #222222 0%, #e1e1e1 100%); /* FF3.6+ */
+	background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #e1e1e1 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, 
-    color-stop(0%,#222222), color-stop(100%,#e1e1e1)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #222222 0%,#e1e1e1 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #222222 0%,#e1e1e1 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #222222 0%,#e1e1e1 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #222222 0%,#e1e1e1 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#222222", 
+    color-stop(0%,#ffffff), color-stop(100%,#e1e1e1)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#e1e1e1 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", 
     endColorstr="#e1e1e1",GradientType=0 ); /* IE6-9 */
 
 }
@@ -899,7 +899,7 @@ website:    http://www.themepunch.com
   background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#222222", endColorstr="#777777", GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
  }
 .gyges .tp-thumb-title:after {
         content:" ";
@@ -1178,7 +1178,7 @@ background:#000;
   background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#222222", endColorstr="#777777", GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
  
       }
 .hades .tp-thumb-title:after {
@@ -2027,7 +2027,7 @@ website:    http://www.themepunch.com
   background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#222222", endColorstr="#777777", GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
  
       }
 .metis .tp-bullet-title:after {

@@ -53,7 +53,7 @@ website:   	http://www.themepunch.com
 	top:0px !important;
 	left:0px !important;
 	z-index:9999999 !important;
-	background:#222222 !important;
+	background:#ffffff !important;
 }
 
 
@@ -876,14 +876,14 @@ img.tp-slider-alternative-image	{
 	font-size: 13px;
 	font-weight: normal;
 	color: #7f8c8d;
-	color: #222222;
+	color: #ffffff;
 	font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	letter-spacing: 2px;
 }
 .rev-scroll-btn > *:hover,
 .rev-scroll-btn > *:focus,
 .rev-scroll-btn > *.active {
-	color: #222222;
+	color: #ffffff;
 }
 .rev-scroll-btn > *:hover,
 .rev-scroll-btn > *:focus,
@@ -1002,8 +1002,8 @@ img.tp-slider-alternative-image	{
 
 .tp-caption img {
 	background: transparent;
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00222222,endColorstr=#00222222)";
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00222222,endColorstr=#00222222);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)";
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
 	zoom:1;
 }
 
