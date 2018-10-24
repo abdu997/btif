@@ -127,7 +127,7 @@
 												<div class="col-md-8">
 													<h2>Announcements</h2>
 														<hr class="hr_narrow  hr_color">
-														<p><strong>Registration NOW OPEN</strong>
+														<p style="font-size: 15px"><strong>Registration NOW OPEN</strong>
 															<br>
 															Youth Basketball Saturdays Canterbury 3:30-5:30
 															<br>
