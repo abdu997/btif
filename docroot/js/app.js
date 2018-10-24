@@ -99,9 +99,8 @@ app.controller('leagueController', function($scope, $http) {
     }).success(function(data) {
       if (data.status === "success") {
         $("#joinTeamError").addClass("success");
-        $("#joinTeamPaypal").click();
         errorReporting(data.status);
-        window.location.href = "https://form.jotform.com/82919387956276";
+        window.location.href = "night-membership";
       } else {
         errorReporting(data.message);
       }

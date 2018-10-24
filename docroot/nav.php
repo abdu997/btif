@@ -37,12 +37,13 @@
                         <li><a href="teams">Teams</a></li>
                         <li><a href="schedule">Schedule</a></li>
                         <li><a href="rules">Rules</a></li>
+                        <li><a href="night-membership">Pay Membership</a></li>
                       </ul>
                     </li>
                     <li class="nav-item dropdown drop_single ">
                       <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="javascript:void(0)">Youth</a>
                       <ul class="dropdown-menu dd_first">
-                        <li><a href="https://form.jotform.com/82906416856264" target="_blank">Register</a></li>
+                        <li><a href="youth-membership">Register</a></li>
                         <li><a href="youth-announcements">Announcements</a></li>
                       </ul>
                     </li>

@@ -182,7 +182,7 @@ class Router
   		'group' => 'public',
   		'route' => 'joinTeam',
   		'callback' => 'PublicController::joinTeam',
-  		'auth' => ['admin'],
+  		'auth' => ['public'],
   		'REQUEST_METHOD' => 'POST'
   	],
   	[
