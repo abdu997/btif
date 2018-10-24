@@ -166,15 +166,6 @@
 								<h2 class="">Contact us!</h2>
 								<p>Contact us if you have any questions!</p>
 							</div>
-							<h6>
-								<strong>
-									<br>
-									<br>
-									<a href="tel:+1-613-884-1052​">+1 613-884-1052​</a><br>
-									<br>
-									<a href="mailto:balltillifallottawa@gmail.com">balltillifallottawa@gmail.com</a><br>
-								</strong>
-							</h4>
 						</div>
 						<!-- Left column -->
 						<!-- Right column -->
