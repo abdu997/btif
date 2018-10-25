@@ -3,7 +3,7 @@ app.controller('leagueController', function($scope, $http) {
   if(window.location.hostname === "localhost"){
     $scope.apiRoot = "http://localhost/btif/api/";
   } else {
-    $scope.apiRoot = "http://" + window.location.hostname + "/api/";
+    $scope.apiRoot = "http://" + window.location.hostname.replace("www.", "") + "/api/";
   }
 
   $scope.contactFrom = function() {
