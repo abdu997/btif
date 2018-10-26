@@ -27,7 +27,7 @@ app.controller('leagueController', function($scope, $http) {
       name: name,
       email: email,
       message: message,
-      phoneNumber: phoneNumber,
+      phone_number: phoneNumber,
     }).success(function(data) {
       if (data.status === "success") {
         document.getElementById("contactName").value = null;
