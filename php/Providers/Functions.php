@@ -485,7 +485,7 @@ class Functions
 	}
 
 	public static function contactEmail($name, $email, $message, $phone_number){
-		$to = "balltillifallottawa@gmail.com";
+		$to = "info@balltillifall.ca";
 		$body = "<strong>From: </strong>".$name." &lt; <a href='mailto:".$email."'>".$email."</a> &gt; <br/>  &lt; ".$phone_number."</a> &gt; <br/> <strong>Message: </strong>".$message;
 		$subject = "Contact form submission";
 		$headers = "MIME-Version: 1.0" . "\r\n";
