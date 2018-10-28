@@ -56,6 +56,12 @@ class PublicController
   	$team_name = $_POST['team_name'];
   	$email = $_POST['email'];
   	$player_number = $_POST['player_number'];
+    if($team_id === "? undefined:undefined ?"){
+      return [
+        'status' => 'error',
+        'message' => 'You must select a team'
+      ];
+    }
   	if (Functions::team_leader_check($email) && Functions::team_name_check($team_name)){
   		return Functions::createUnpaidOrder($action, $first_name, $last_name, $team_id, $team_name, $email, $player_number);
   	} else {

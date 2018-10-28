@@ -64,6 +64,10 @@ app.controller('leagueController', function($scope, $http) {
       errorReporting("Email cannot be empty");
       return;
     }
+    if (teamId === "? undefined:undefined ?") {
+      errorReporting("You must select a team");
+      return;
+    }
     if (playerNumber.length === 0) {
       errorReporting("Player number cannot be empty");
       return;
