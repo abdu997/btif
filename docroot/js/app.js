@@ -72,8 +72,8 @@ app.controller('leagueController', function($scope, $http) {
       errorReporting("Player number cannot be empty");
       return;
     }
-    if (playerNumber > 10) {
-      errorReporting("Player number cannot be larger than 10");
+    if (playerNumber > 10 || playerNumber < 1) {
+      errorReporting("Player number cannot be between 1 and 10");
       return;
     }
     if(!waiver){
