@@ -45,13 +45,17 @@ if(!isset($_SESSION['admin_id'])){
                                     <input type="text" placeholder="Search" ng-model="searchTeams" class="form-control" style="width: 200px;">
                                     <table class="table">
                                         <thead>
-                                            <th>Team ID</th>
-                                            <th>Team Name</th>
-                                            <th></th>
-                                            <th></th>
+																						<tr>
+																							<th></th>
+	                                            <th>Team ID</th>
+	                                            <th>Team Name</th>
+	                                            <th></th>
+	                                            <th></th>
+																						</tr>
                                         </thead>
                                         <tbody>
-                                            <tr ng-repeat="x in teams">
+                                            <tr ng-repeat="x in teams | orderBy:'-team_id'">
+																								<td class="table-index">{{$index + 1}}</td>
                                                 <td>{{x.team_id}}</td>
                                                 <td>{{x.team_name}}</td>
                                                 <td>
@@ -104,6 +108,7 @@ if(!isset($_SESSION['admin_id'])){
                                     <input type="text" placeholder="Search" ng-model="searchSchedule" class="form-control" style="width: 200px;">
                                     <thead>
                                         <tr>
+																						<th></th>
                                             <th>Game #</th>
                                             <th>Teams</th>
                                             <th>Date</th>
@@ -117,7 +122,8 @@ if(!isset($_SESSION['admin_id'])){
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="x in schedule | filter: searchSchedule">
+                                        <tr ng-repeat="x in schedule | filter: searchSchedule | orderBy:'-game_id'">
+																						<td class="table-index">{{$index + 1}}</td>
                                             <th>{{x.game_id}}</th>
                                             <td><strong>{{x.team1_name}}</strong>&nbsp;v.&nbsp;<strong>{{x.team2_name}}</strong></td>
                                             <td>{{x.date}}</td>
@@ -207,16 +213,20 @@ if(!isset($_SESSION['admin_id'])){
                                     <input type="text" placeholder="Search" ng-model="searchPlayers" class="form-control" style="width: 200px;">
                                     <table class="table">
                                         <thead>
-                                            <th>Player ID</th>
-                                            <th>Player Name</th>
-                                            <th>Email</th>
-                                            <th>Player #</th>
-                                            <th>Team</th>
-                                            <th></th>
-                                            <th></th>
+																						<tr>
+																							<th></th>
+	                                            <th>Player ID</th>
+	                                            <th>Player Name</th>
+	                                            <th>Email</th>
+	                                            <th>Player #</th>
+	                                            <th>Team</th>
+	                                            <th></th>
+	                                            <th></th>
+																						</tr>
                                         </thead>
                                         <tbody>
-                                            <tr ng-repeat="x in adminPlayers | filter: searchPlayers">
+                                            <tr ng-repeat="x in adminPlayers | filter: searchPlayers | orderBy:'-player_id'">
+																								<td class="table-index">{{$index + 1}}</td>
                                                 <td>{{x.player_id}}</td>
                                                 <td>{{x.first_name}} {{x.last_name}}</td>
                                                 <td>{{x.email}}</td>
@@ -246,19 +256,23 @@ if(!isset($_SESSION['admin_id'])){
 																		<input type="text" placeholder="Search" ng-model="searchUnpaid" class="form-control" style="width: 200px;">
 																		<table class="table">
 																				<thead>
-																						<th>Record ID</th>
-																						<th>First Name</th>
-																						<th>Last Name</th>
-																						<th>Email</th>
-																						<th>Team Name</th>
-																						<th>Player Number</th>
-																						<th>Order type</th>
-																						<th>Paid</th>
-																						<th></th>
-																						<th></th>
+																						<tr>
+																							<th></th>
+																							<th>Record ID</th>
+																							<th>First Name</th>
+																							<th>Last Name</th>
+																							<th>Email</th>
+																							<th>Team Name</th>
+																							<th>Player Number</th>
+																							<th>Order type</th>
+																							<th>Paid</th>
+																							<th></th>
+																							<th></th>
+																						</tr>
 																				</thead>
 																				<tbody>
-																						<tr ng-repeat="x in unpaid | filter: searchUnpaid">
+																						<tr ng-repeat="x in unpaid | filter: searchUnpaid | orderBy:'-record_id'">
+																								<td class="table-index">{{$index + 1}}</td>
 																								<td>{{x.record_id}}</td>
 																								<td>{{x.first_name}}</td>
 																								<td>{{x.last_name}}</td>
@@ -338,6 +352,9 @@ if(!isset($_SESSION['admin_id'])){
                     padding: 6px 12px;
                     border-top: none;
                 }
+								.table-index {
+									background: lightgray
+								}
             </style>
     </body>
 
