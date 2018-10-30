@@ -54,7 +54,7 @@ if(!isset($_SESSION['admin_id'])){
 																						</tr>
                                         </thead>
                                         <tbody>
-                                            <tr ng-repeat="x in teams | orderBy:'-team_id'">
+                                            <tr ng-repeat="x in teams">
 																								<td class="table-index">{{$index + 1}}</td>
                                                 <td>{{x.team_id}}</td>
                                                 <td>{{x.team_name}}</td>
@@ -122,7 +122,7 @@ if(!isset($_SESSION['admin_id'])){
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="x in schedule | filter: searchSchedule | orderBy:'-game_id'">
+                                        <tr ng-repeat="x in schedule | filter: searchSchedule">
 																						<td class="table-index">{{$index + 1}}</td>
                                             <th>{{x.game_id}}</th>
                                             <td><strong>{{x.team1_name}}</strong>&nbsp;v.&nbsp;<strong>{{x.team2_name}}</strong></td>
@@ -225,7 +225,7 @@ if(!isset($_SESSION['admin_id'])){
 																						</tr>
                                         </thead>
                                         <tbody>
-                                            <tr ng-repeat="x in adminPlayers | filter: searchPlayers | orderBy:'-player_id'">
+                                            <tr ng-repeat="x in adminPlayers | filter: searchPlayers">
 																								<td class="table-index">{{$index + 1}}</td>
                                                 <td>{{x.player_id}}</td>
                                                 <td>{{x.first_name}} {{x.last_name}}</td>
@@ -271,7 +271,7 @@ if(!isset($_SESSION['admin_id'])){
 																						</tr>
 																				</thead>
 																				<tbody>
-																						<tr ng-repeat="x in unpaid | filter: searchUnpaid | orderBy:'-record_id'">
+																						<tr ng-repeat="x in unpaid | filter: searchUnpaid">
 																								<td class="table-index">{{$index + 1}}</td>
 																								<td>{{x.record_id}}</td>
 																								<td>{{x.first_name}}</td>
