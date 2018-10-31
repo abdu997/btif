@@ -24,7 +24,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
-                            <h2>Youth (Canterbury) Membership </h2>
+                            <h2>Youth (Canterbury) Payment </h2>
                             <hr class="hr_narrow  hr_color">
                         </div>
                     </div>
@@ -36,7 +36,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12" style="color: black">
-                      <iframe style="width: 100%; height: 100%;" src="https://form.jotform.com/82906416856264">
+                      <iframe style="width: 100%; height: 100%;" src="https://squareup.com/store/balltillifallcanada/item/youth-canterbury-basketball">
                       </iframe>
                     </div>
                 </div>

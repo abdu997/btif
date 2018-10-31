@@ -44,6 +44,7 @@
                       <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="javascript:void(0)">Youth</a>
                       <ul class="dropdown-menu dd_first">
                         <li><a href="youth-membership">Register</a></li>
+                        <li><a href="youth-payment">Payment</a></li>
                         <li><a href="youth-announcements">Announcements</a></li>
                       </ul>
                     </li>
