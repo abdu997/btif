@@ -31,7 +31,7 @@ if(!isset($_SESSION['admin_id'])){
                 <section ng-init="getTeams(); getSchedule()" class=" bg-sand">
                     <div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <h3>Team Form</h3>
                                 <br>
                                 <form id="teamCreate">
@@ -40,7 +40,7 @@ if(!isset($_SESSION['admin_id'])){
                                     <input class="btn btn-lg btn-primary btn-block" type="submit" ng-click="adminAddTeam()" value="{{adminTeamBtn}}">
                                 </form>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-10">
                                 <div class="member_desc">
                                     <input type="text" placeholder="Search" ng-model="searchTeams" class="form-control" style="width: 200px;">
                                     <table class="table">
@@ -78,7 +78,7 @@ if(!isset($_SESSION['admin_id'])){
                 <section ng-init="getSchedule(); getTeams()" class="bg-sand">
                     <div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <h3>League Schedule</h3>
                                 <br>
                                 <form id="scheduleForm">
@@ -103,7 +103,7 @@ if(!isset($_SESSION['admin_id'])){
                                     <input class="btn btn-lg btn-primary btn-block" type="submit" ng-click="adminAddEditSchedule()" value="{{adminScheduleBtn}}">
                                 </form>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-10">
                                 <table class="table" style="overflow-x: scroll;">
                                     <input type="text" placeholder="Search" ng-model="searchSchedule" class="form-control" style="width: 200px;">
                                     <thead>
@@ -189,7 +189,7 @@ if(!isset($_SESSION['admin_id'])){
                 <section ng-init="adminGetPlayers()" class=" bg-sand">
                     <div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <h3>Players</h3>
                                 <br>
                                 <form id="playerCreate">
@@ -219,7 +219,7 @@ if(!isset($_SESSION['admin_id'])){
                                     <input class="btn btn-lg btn-primary btn-block" type="submit" ng-click="adminCreateEditPlayer()" value="{{adminPlayerBtn}}">
                                 </form>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-10">
                                 <div class="member_desc">
                                     <input type="text" placeholder="Search" ng-model="searchPlayers" class="form-control" style="width: 200px;">
                                     <table class="table">
