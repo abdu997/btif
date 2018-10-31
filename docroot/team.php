@@ -67,6 +67,8 @@
 									<thead>
 										<th>Player Name</th>
 										<th>Player #</th>
+										<th>Stars</th>
+										<th>Age</th>
 										<th>PPG</th>
 										<th>APG</th>
 										<th>RPG</th>
@@ -77,6 +79,8 @@
 										<tr ng-repeat="x in stats">
 											<td>{{x.player_name}}</td>
 											<td>{{x.player_number}}</td>
+											<td>{{x.experience}}</td>
+											<td>{{x.age}}</td>
 											<td>{{x.ppg | number: 1}}</td>
 											<td>{{x.apg | number: 1}}</td>
 											<td>{{x.rpg | number: 1}}</td>

@@ -32,7 +32,6 @@ class PublicController
   }
 
   public static function createTeam(){
-  	$action = "createTeam";
   	$first_name = $_POST['first_name'];
   	$last_name = $_POST['last_name'];
   	$team_id = $_POST['team_id'];
@@ -40,8 +39,12 @@ class PublicController
   	$email = $_POST['email'];
   	$player_number = $_POST['player_number'];
 
+    $address = $_POST['address'];
+    $phone_number = $_POST['phone_number'];
+    $age = $_POST['age'];
+    $experience = $_POST['experience'];
   	if (Functions::team_leader_check($email) && Functions::team_name_check($team_name)){
-  		return Functions::createUnpaidOrder($action, $first_name, $last_name, $team_id, $team_name, $email, $player_number);
+  		return Functions::createUnpaidOrder($first_name, $last_name, $team_id, $team_name, $email, $player_number, $address, $phone_number, $age, $experience);
   	} else {
   		return Functions::team_leader_check($email);
   		return Functions::team_name_check($team_name);
@@ -56,6 +59,10 @@ class PublicController
   	$team_name = $_POST['team_name'];
   	$email = $_POST['email'];
   	$player_number = $_POST['player_number'];
+    $address = $_POST['address'];
+    $phone_number = $_POST['phone_number'];
+    $age = $_POST['age'];
+    $experience = $_POST['experience'];
     if($team_id === "? undefined:undefined ?"){
       return [
         'status' => 'error',
@@ -63,7 +70,7 @@ class PublicController
       ];
     }
   	if (Functions::team_leader_check($email) && Functions::team_name_check($team_name)){
-  		return Functions::createUnpaidOrder($action, $first_name, $last_name, $team_id, $team_name, $email, $player_number);
+  		return Functions::createUnpaidOrder($action, $first_name, $last_name, $team_id, $team_name, $email, $player_number, $address, $phone_number, $age, $experience);
   	} else {
   		return Functions::team_leader_check($email);
   		return Functions::team_name_check($team_name);

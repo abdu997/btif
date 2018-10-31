@@ -55,11 +55,15 @@ class AdminController
     $email = $_POST['email'];
     $team_id = $_POST['team_id'];
     $player_number = $_POST['player_number'];
+    $address = $_POST['address'];
+    $phone_number = $_POST['phone_number'];
+    $age = $_POST['age'];
+    $experience = $_POST['experience'];
     if($action === "Edit"){
       $player_id = $_POST['player_id'];
-      return Functions::adminUpdatePlayer($player_id, $player_first_name, $player_last_name, $email, $team_id, $player_number);
+      return Functions::adminUpdatePlayer($player_id, $player_first_name, $player_last_name, $email, $team_id, $player_number, $address, $phone_number, $age, $experience);
     } else {
-      return Functions::adminCreatePlayer($player_first_name, $player_last_name, $email, $team_id, $player_number);
+      return Functions::adminCreatePlayer($player_first_name, $player_last_name, $email, $team_id, $player_number, $address, $phone_number, $age, $experience);
     }
   }
 

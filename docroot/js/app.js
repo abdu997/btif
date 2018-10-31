@@ -48,6 +48,12 @@ app.controller('leagueController', function($scope, $http) {
     var teamId = document.getElementById("teamJoinTeam").value;
     var playerNumber = document.getElementById("playerNumberJoinTeam").value;
     var waiver = document.getElementById("joinTeamWaiver").checked;
+
+    var address = document.getElementById("address").value;
+    var phoneNumber = document.getElementById("phoneNumber").value;
+    var age = document.getElementById("age").value;
+    var experience = document.getElementById("experience").value;
+
     function errorReporting(error) {
       $("#joinTeamError").removeClass("hidden");
       document.getElementById("joinTeamError").innerHTML = error;
@@ -76,18 +82,41 @@ app.controller('leagueController', function($scope, $http) {
       errorReporting("Player number must be between 1 and 10");
       return;
     }
+    if (address.length === 0) {
+      errorReporting("Address cannot be empty");
+      return;
+    }
+    if (email.length === 0) {
+      errorReporting("Email cannot be empty");
+      return;
+    }
+    if (phoneNumber.length < 10 || phoneNumber.length > 12) {
+      errorReporting("Please provide your 10 digit phone number");
+      return;
+    }
+    if (age < 1) {
+      errorReporting("Please provide your age");
+      return;
+    }
+    if (experience < 1 || experience > 5) {
+      errorReporting("Your experience rating must be between 1 and 5");
+      return;
+    }
     if(!waiver){
       errorReporting("You must agree to the waiver");
       return;
     }
-
     $http.post($scope.apiRoot + "joinTeam", {
       first_name: firstName,
       last_name: lastName,
       email: email,
       team_id: teamId,
       team_name: null,
-      player_number: playerNumber
+      player_number: playerNumber,
+      address: address,
+      phone_number: phoneNumber,
+      age: age,
+      experience: experience,
     }).success(function(data) {
       if (data.status === "success") {
         $("#joinTeamError").addClass("success");
@@ -101,7 +130,6 @@ app.controller('leagueController', function($scope, $http) {
 
   $scope.getTeams = function(team_id) {
     $http.post($scope.apiRoot + "readTeams", {
-
       team_id: team_id
     }).success(function(data) {
       $scope.teams = data;
@@ -296,7 +324,11 @@ app.controller('leagueController', function($scope, $http) {
       last_name: document.getElementById("lastNamePlayer").value,
       email: document.getElementById("emailPlayer").value,
       team_id: document.getElementById("playerTeam").value,
-      player_number: document.getElementById("playerNumber").value
+      player_number: document.getElementById("playerNumber").value,
+      phone_number: document.getElementById("phoneNumberPlayer").value,
+      address: document.getElementById("addressPlayer").value,
+      experience: document.getElementById("playerExperience").value,
+      age: document.getElementById("playerAge").value,
     }).success(function(data){
       if(data.status === "success"){
         $scope.adminGetPlayers();
@@ -308,14 +340,20 @@ app.controller('leagueController', function($scope, $http) {
     })
   }
 
-  $scope.adminEditPlayer = function(player_id, first_name, last_name, email, player_number, team_id){
-    $scope.player_id = player_id;
+  $scope.adminEditPlayer = function(player){
+    $scope.player_id = player.player_id;
     $scope.adminPlayerBtn = "Edit";
-    document.getElementById("firstNamePlayer").value = first_name;
-    document.getElementById("lastNamePlayer").value = last_name;
-    document.getElementById("emailPlayer").value = email;
-    document.getElementById("playerTeam").value = team_id;
-    document.getElementById("playerNumber").value = player_number;
+    document.getElementById("firstNamePlayer").value = player.first_name;
+    document.getElementById("lastNamePlayer").value = player.last_name;
+    document.getElementById("emailPlayer").value = player.email;
+    document.getElementById("playerTeam").value = player.team_id;
+    document.getElementById("playerNumber").value = player.player_number;
+
+    document.getElementById("phoneNumberPlayer").value = player.phone_number;
+    document.getElementById("addressPlayer").value = player.address;
+    document.getElementById("playerExperience").value = player.experience;
+    document.getElementById("playerAge").value = player.age;
+
   }
 
   $scope.adminDeletePlayer = function(player_id) {

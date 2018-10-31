@@ -17,7 +17,7 @@ if(!isset($_SESSION['admin_id'])){
 
     <body id="body" class="b-element bg-sand" ng-app="leagueApp" ng-controller="leagueController">
         <div class="main-wrapper">
-            <div class="container">
+            <div>
 							<div class="tab">
 									<button class="tablinks" ng-click="getTeams()" onclick="openCity(event, 'Teams')">Teams</button>
 									<button class="tablinks" ng-click="getSchedule()" onclick="openCity(event, 'Schedule')">Schedule</button>
@@ -29,7 +29,7 @@ if(!isset($_SESSION['admin_id'])){
 
             <div id="Teams" class="tabcontent">
                 <section ng-init="getTeams(); getSchedule()" class=" bg-sand">
-                    <div class="container">
+                    <div>
                         <div class="row">
                             <div class="col-md-3">
                                 <h3>Team Form</h3>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['admin_id'])){
 
             <div id="Schedule" class="tabcontent">
                 <section ng-init="getSchedule(); getTeams()" class="bg-sand">
-                    <div class="container">
+                    <div>
                         <div class="row">
                             <div class="col-md-3">
                                 <h3>League Schedule</h3>
@@ -187,7 +187,7 @@ if(!isset($_SESSION['admin_id'])){
 
             <div id="Players" class="tabcontent">
                 <section ng-init="adminGetPlayers()" class=" bg-sand">
-                    <div class="container">
+                    <div>
                         <div class="row">
                             <div class="col-md-3">
                                 <h3>Players</h3>
@@ -205,6 +205,17 @@ if(!isset($_SESSION['admin_id'])){
                                     </select>
                                     <label>Player #</label>
                                     <input type="number" min="0" class="form-control" id="playerNumber">
+																		<label>Player Phone Number</label>
+                                    <input type="text" id="phoneNumberPlayer" class="form-control" autofocus>
+                                    <label>Player Address</label>
+                                    <input type="text" id="addressPlayer" class="form-control" autofocus>
+
+																		<label>Player Experience</label>
+																		<input type="number" min="1" max="5" class="form-control" id="playerExperience">
+
+																		<label>Age</label>
+                                    <input type="number" min="1" class="form-control" id="playerAge">
+
                                     <input class="btn btn-lg btn-primary btn-block" type="submit" ng-click="adminCreateEditPlayer()" value="{{adminPlayerBtn}}">
                                 </form>
                             </div>
@@ -220,6 +231,10 @@ if(!isset($_SESSION['admin_id'])){
 	                                            <th>Email</th>
 	                                            <th>Player #</th>
 	                                            <th>Team</th>
+																							<th>Address</th>
+																							<th>Phone Number</th>
+																							<th>Experience</th>
+																							<th>Age</th>
 	                                            <th></th>
 	                                            <th></th>
 																						</tr>
@@ -232,8 +247,12 @@ if(!isset($_SESSION['admin_id'])){
                                                 <td>{{x.email}}</td>
                                                 <td>{{x.player_number}}</td>
                                                 <td>{{x.team_name}}</td>
+																								<td>{{x.address}}</td>
+																								<td>{{x.phone_number}}</td>
+																								<td>{{x.experience}}</td>
+																								<td>{{x.age}}</td>
                                                 <td>
-                                                    <button ng-click="adminEditPlayer(x.player_id, x.first_name, x.last_name, x.email, x.player_number, x.team_id)">edit</button>
+                                                    <button ng-click="adminEditPlayer(x)">edit</button>
                                                 </td>
                                                 <td>
                                                     <button ng-click="adminDeletePlayer(x.player_id)">delete</button>
@@ -249,7 +268,7 @@ if(!isset($_SESSION['admin_id'])){
             </div>
 						<div id="Registrar" class="tabcontent">
 								<section ng-init="getUnpaid()" class=" bg-sand">
-										<div class="container">
+										<div>
 												<div class="row">
 														<div class="col-md-12">
 																<div class="member_desc">
@@ -264,6 +283,10 @@ if(!isset($_SESSION['admin_id'])){
 																							<th>Email</th>
 																							<th>Team Name</th>
 																							<th>Player Number</th>
+																							<th>Address</th>
+																							<th>Phone Number</th>
+																							<th>Experience</th>
+																							<th>Age</th>
 																							<th>Order type</th>
 																							<th>Paid</th>
 																							<th></th>
@@ -279,6 +302,10 @@ if(!isset($_SESSION['admin_id'])){
 																								<td>{{x.email}}</td>
 																								<td>{{x.team_name}}</td>
 																								<td>{{x.player_number}}</td>
+																								<td>{{x.address}}</td>
+																								<td>{{x.phone_number}}</td>
+																								<td>{{x.experience}}</td>
+																								<td>{{x.age}}</td>
 																								<td>{{x.order_type}}</td>
 																								<td>{{x.paid}}</td>
 																								<td>

@@ -82,8 +82,8 @@
 									</div>
 									<div class="form-group row">
 										<label class="col-md-2 col-form-label">Team Name</label>
-										<div ng-init="getTeams()" class="col-md-10">
-											<select ng-model="teamIDselect" id="teamJoinTeam" class="form-control">
+										<div class="col-md-10">
+											<select ng-init="getTeams()" ng-model="teamIDselect" id="teamJoinTeam" class="form-control">
 													<option ng-repeat="x in teams" value="{{x.team_id}}">{{x.team_name}}</option>
 											</select>
 										</div>
@@ -92,6 +92,30 @@
 										<label class="col-md-2 col-form-label">Player Number</label>
 										<div class="col-md-10">
 											<input class="form-control" type="number" min="1" placeholder="Player Team Number" id="playerNumberJoinTeam">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="example-text-input" class="col-md-2 col-form-label">Address</label>
+										<div class="col-md-10">
+											<input class="form-control" type="text" placeholder="Team Leader Address" id="address">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="example-search-input" class="col-md-2 col-form-label">Phone Number</label>
+										<div class="col-md-10">
+											<input class="form-control" type="text" id="phoneNumber" placeholder="###-###-####">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2 col-form-label">Age</label>
+										<div class="col-md-10">
+											<input class="form-control" type="number" min="1" placeholder="Age" id="age">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2 col-form-label">Basketball experience (stars)</label>
+										<div class="col-md-10">
+											<input class="form-control" type="number" min="1" max="5" placeholder="Basketball experience (stars)" id="experience">
 										</div>
 									</div>
 									<div class="form-group row">
