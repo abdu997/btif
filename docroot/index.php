@@ -113,9 +113,9 @@
 										</div>
 									</div>
 									<div class="form-group row">
-										<label class="col-md-2 col-form-label">Basketball experience (stars)</label>
+										<label class="col-md-2 col-form-label">Rate your self 1-5</label>
 										<div class="col-md-10">
-											<input class="form-control" type="number" min="1" max="5" placeholder="Basketball experience (stars)" id="experience">
+											<input class="form-control" type="number" min="1" max="5" placeholder="Rate your self 1-5" id="experience">
 										</div>
 									</div>
 									<div class="form-group row">
