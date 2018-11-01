@@ -285,9 +285,8 @@ if(!isset($_SESSION['admin_id'])){
 																							<th>Player Number</th>
 																							<th>Address</th>
 																							<th>Phone Number</th>
-																							<th>Experience</th>
+																							<th>Stars</th>
 																							<th>Age</th>
-																							<th>Order type</th>
 																							<th>Paid</th>
 																							<th></th>
 																							<th></th>
@@ -306,7 +305,6 @@ if(!isset($_SESSION['admin_id'])){
 																								<td>{{x.phone_number}}</td>
 																								<td>{{x.experience}}</td>
 																								<td>{{x.age}}</td>
-																								<td>{{x.order_type}}</td>
 																								<td>{{x.paid}}</td>
 																								<td>
 																										<button ng-click="adminPaidUnpaid(x.record_id)">paid</button>
