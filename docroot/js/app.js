@@ -78,8 +78,8 @@ app.controller('leagueController', function($scope, $http) {
       errorReporting("Player number cannot be empty");
       return;
     }
-    if(playerNumber > 10 || playerNumber < 1){
-      errorReporting("Player number must be between 1 and 10");
+    if(playerNumber > 100 || playerNumber < 1){
+      errorReporting("Player number must be between 1 and 100");
       return;
     }
     if (address.length === 0) {
