@@ -276,8 +276,8 @@ class Functions
 			if(!self::uniquePlayerNumber($team_id, $player_number, $record_id)){
 				return ['status' => 'error', 'message' => 'The player number you chose has been taken'];
 			}
-			if(self::fetchTeamInfo($team_id)[0]['team_count'] >= 10){
-				return ['status' => 'error', 'message' => 'This team has already reached the limit of 10 players'];
+			if(self::fetchTeamInfo($team_id)[0]['team_count'] >= 15){
+				return ['status' => 'error', 'message' => 'This team has already reached the limit of 15 players'];
 			}
 		}
 		$sql = "INSERT INTO players(first_name, last_name, email, address, phone_number, age, experience) VALUES('$player_first_name', '$player_last_name', '$email', '$address', '$phone_number', '$age', '$experience')";
@@ -351,8 +351,8 @@ class Functions
 	}
 
 	public static function adminUpdatePlayer($player_id, $player_first_name, $player_last_name, $email, $team_id, $player_number, $address, $phone_number, $age, $experience){
-		if(self::fetchTeamInfo($team_id)[0]['team_count'] >= 10){
-			return ['status' => 'error', 'message' => 'This team has already reached the limit of 10 players'];
+		if(self::fetchTeamInfo($team_id)[0]['team_count'] >= 15){
+			return ['status' => 'error', 'message' => 'This team has already reached the limit of 15 players'];
 		}
 		$sql = "UPDATE players SET first_name = '$player_first_name', last_name = '$player_last_name', email = '$email', address = '$address', phone_number = '$phone_number', age = '$age', experience = '$experience' WHERE player_id = '$player_id'";
 		if(mysqli_query(DB::connect(), $sql)){
