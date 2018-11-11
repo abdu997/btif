@@ -473,6 +473,7 @@ app.controller('leagueController', function($scope, $http) {
       password: password
     }).success(function (data){
       if(data.status === "success"){
+        document.getElementById("adminForm").reset();
         $scope.adminReadAdmins();
       } else {
         alert(data.message);
@@ -493,6 +494,8 @@ app.controller('leagueController', function($scope, $http) {
     }).success(function (data){
       if(data.status === "success"){
         $scope.adminReadAdmins();
+        $scope.adminUserBtn = "Add";
+        document.getElementById("adminForm").reset();
       } else {
         alert(data.message);
       }
