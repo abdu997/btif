@@ -442,4 +442,79 @@ app.controller('leagueController', function($scope, $http) {
       }
     })
   }
+
+  $scope.adminReadAdmins = function(){
+    $http.get($scope.apiRoot + "readAdmins").success(function(data){
+      if(data.status === "success") {
+        $scope.admins = data.result;
+      } else {
+        alert(data.message);
+      }
+    })
+  }
+
+  $scope.adminUserBtn = "Add";
+  $scope.adminCreateEditUser = function(){
+    if($scope.adminUserBtn === "Add"){
+      $scope.adminCreateUser();
+    } else if($scope.adminUserBtn === "Edit"){
+      $scope.adminEditUser();
+    }
+  }
+
+  $scope.adminCreateUser = function(){
+    var fullName = document.getElementById("adminFullName").value;
+    var email = document.getElementById("adminEmail").value;
+    var password = document.getElementById("adminPassword").value;
+
+    $http.post($scope.apiRoot + "createAdmin", {
+      admin_name: fullName,
+      admin_email: email,
+      password: password
+    }).success(function (data){
+      if(data.status === "success"){
+        $scope.adminReadAdmins();
+      } else {
+        alert(data.message);
+      }
+    });
+  }
+
+  $scope.adminEditUser = function(){
+    var fullName = document.getElementById("adminFullName").value;
+    var email = document.getElementById("adminEmail").value;
+    var password = document.getElementById("adminPassword").value;
+
+    $http.post($scope.apiRoot + "updateAdmin", {
+      admin_id: $scope.adminId,
+      admin_name: fullName,
+      admin_email: email,
+      password: password
+    }).success(function (data){
+      if(data.status === "success"){
+        $scope.adminReadAdmins();
+      } else {
+        alert(data.message);
+      }
+    });
+  }
+
+  $scope.adminEdit = function(admin){
+    document.getElementById("adminFullName").value = admin.admin_name;
+    document.getElementById("adminEmail").value = admin.admin_email;
+    $scope.adminUserBtn = "Edit";
+    $scope.adminId = admin.admin_id;
+  }
+
+  $scope.adminDelete = function(admin_id){
+    $http.post($scope.apiRoot + "deleteAdmin", {
+      admin_id: admin_id,
+    }).success(function(data){
+      if(data.status === "success"){
+        $scope.adminReadAdmins();
+      } else {
+        alert(data.message);
+      }
+    });
+  }
 });

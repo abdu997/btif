@@ -23,12 +23,13 @@ if(!isset($_SESSION['admin_id'])){
 									<button class="tablinks" ng-click="getSchedule()" onclick="openCity(event, 'Schedule')">Schedule</button>
 									<button class="tablinks" ng-click="adminGetPlayers()" onclick="openCity(event, 'Players')">Players</button>
 									<button class="tablinks" ng-click="getUnpaid()" onclick="openCity(event, 'Registrar')">Registrar</button>
+									<button class="tablinks" ng-click="adminReadAdmins()" onclick="openCity(event, 'Admins')">Admins</button>
 									<button ng-click="logout()" style="background: red; color: white;" class="tablinks">Logout</button>
 							</div>
 						</div>
 
             <div id="Teams" class="tabcontent">
-                <section ng-init="getTeams(); getSchedule()" class=" bg-sand">
+                <section ng-init="getTeams(); getSchedule(); adminReadAdmins()" class=" bg-sand">
                     <div>
                         <div class="row">
                             <div class="col-md-2">
@@ -311,6 +312,58 @@ if(!isset($_SESSION['admin_id'])){
 																								</td>
 																								<td>
 																										<button ng-click="adminDeleteUnpaid(x.record_id)">delete</button>
+																								</td>
+																						</tr>
+																				</tbody>
+																		</table>
+																</div>
+														</div>
+												</div>
+										</div>
+								</section>
+						</div>
+						<div id="Admins" class="tabcontent">
+								<section ng-init="getUnpaid()" class=" bg-sand">
+										<div>
+												<div class="row">
+													<div class="col-md-2">
+															<h3>Admins</h3>
+															<br>
+															<form id="adminForm">
+																	<label>Full Name</label>
+																	<input type="text" id="adminFullName" class="form-control" autofocus>
+																	<label>Email</label>
+																	<input type="email" id="adminEmail" class="form-control" autofocus>
+																	<label>Password</label>
+																	<input type="text" id="adminPassword" class="form-control" autofocus>
+																	<input class="btn btn-lg btn-primary btn-block" type="submit" ng-click="adminCreateEditUser()" value="{{adminUserBtn}}">
+															</form>
+													</div>
+														<div class="col-md-10">
+																<div class="member_desc">
+																		<input type="text" placeholder="Search" ng-model="searchAdmins" class="form-control" style="width: 200px;">
+																		<table class="table">
+																				<thead>
+																						<tr>
+																							<th></th>
+																							<th>Admin ID</th>
+																							<th>Full Name</th>
+																							<th>Email</th>
+																							<th></th>
+																							<th></th>
+																						</tr>
+																				</thead>
+																				<tbody>
+																						<tr ng-repeat="x in admins | filter: searchAdmins">
+																								<td class="table-index">{{$index + 1}}</td>
+																								<td>{{x.admin_id}}</td>
+																								<td>{{x.admin_name}}</td>
+																								<td>{{x.admin_email}}</td>
+																								<td>
+																										<button ng-click="adminEdit(x)">Edit</button>
+																								</td>
+																								<td>
+																										<button ng-click="adminDelete(x.admin_id)">Delete</button>
 																								</td>
 																						</tr>
 																				</tbody>

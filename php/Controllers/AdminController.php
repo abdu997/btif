@@ -103,9 +103,41 @@ class AdminController
     return Functions::adminDeleteUnpaid($record_id);
   }
 
-  public static function adminPaidUnpaid(){
+  public static function adminPaidUnpaid()
+  {
     $record_id = $_POST['record_id'];
     $return = Functions::processUnpaid($record_id);
     return $return;
+  }
+
+  public static function readAdmins()
+  {
+    return [
+      'status' => 'success',
+      'result' => Functions::getAdmins()
+    ];
+  }
+
+  public static function createAdmin()
+  {
+    $admin_name = $_POST['admin_name'];
+    $admin_email = $_POST['admin_email'];
+    $password = $_POST['password'];
+    return Functions::createAdmin($admin_name, $admin_email, $password);
+  }
+
+  public static function updateAdmin()
+  {
+    $admin_id = $_POST['admin_id'];
+    $admin_name = $_POST['admin_name'];
+    $admin_email = $_POST['admin_email'];
+    $password = $_POST['password'];
+    return Functions::updateAdmin($admin_id, $admin_name, $admin_email, $password);
+  }
+
+  public static function deleteAdmin()
+  {
+    $admin_id = $_POST['admin_id'];
+    return Functions::deleteAdmin($admin_id);
   }
 }

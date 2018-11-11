@@ -509,4 +509,36 @@ class Functions
 			];
 		}
 	}
+
+	public static function getAdmins()
+	{
+		$sql = "SELECT admin_id, admin_name, admin_email FROM admin_users";
+		return DB::select($sql);
+	}
+
+	public static function createAdmin($admin_name, $admin_email, $password)
+	{
+		$password = password_hash($password, PASSWORD_DEFAULT);
+		$sql = "INSERT INTO admin_users SET admin_name = '$admin_name', admin_email = '$admin_email', password = '$password'";
+		$query = DB::insert($sql);
+		if($query){
+			return ['status'=>'success'];
+		} else {
+			return ['status'=>'error', 'message'=>$query];
+		}
+	}
+
+	public static function updateAdmin($admin_id, $admin_name, $admin_email, $password)
+	{
+		$password = password_hash($password, PASSWORD_DEFAULT);
+		$sql = "UPDATE admin_users SET admin_name = '$admin_name', admin_email = '$admin_email', password = '$password' WHERE admin_id = '$admin_id'";
+		$query = DB::query($sql);
+		return $query;
+	}
+
+	public static function deleteAdmin($admin_id)
+	{
+		$sql = "DELETE FROM admin_users WHERE admin_id = '$admin_id'";
+		return DB::query($sql);
+	}
 }

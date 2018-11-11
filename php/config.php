@@ -188,6 +188,30 @@ $GLOBALS['api'] =  [
     'auth' => ['public'],
     'REQUEST_METHOD' => 'POST'
   ],
+  [
+    'route' => 'readAdmins',
+    'callback' => 'AdminController::readAdmins',
+    'auth' => ['admin'],
+    'REQUEST_METHOD' => 'GET'
+  ],
+  [
+    'route' => 'createAdmin',
+    'callback' => 'AdminController::createAdmin',
+    'auth' => ['admin'],
+    'REQUEST_METHOD' => 'POST'
+  ],
+  [
+    'route' => 'deleteAdmin',
+    'callback' => 'AdminController::deleteAdmin',
+    'auth' => ['admin'],
+    'REQUEST_METHOD' => 'POST'
+  ],
+  [
+    'route' => 'updateAdmin',
+    'callback' => 'AdminController::updateAdmin',
+    'auth' => ['admin'],
+    'REQUEST_METHOD' => 'POST'
+  ],
 ];
 $GLOBALS['views'] =  [
 
