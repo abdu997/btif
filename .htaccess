@@ -5,7 +5,7 @@ RewriteRule ^(.*)$ http://%1%{REQUEST_URI} [R=301,QSA,NC,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^api/([0-9a-zA-Z]*)$ php/?route=$1 [L]
+RewriteRule ^api/(.*)$ php/?REQUEST_TYPE=api&route=$1 [L]
 
 RewriteCond %{ENV:REDIRECT_STATUS} !=200
 RewriteRule (.*) docroot/$1 [L]

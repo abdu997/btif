@@ -1,4 +1,9 @@
 <?php
+
+namespace Providers;
+
+use Prism\DB;
+
 class Functions
 {
 	// Checks if team leader is not in another team

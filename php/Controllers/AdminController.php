@@ -1,4 +1,9 @@
 <?php
+
+namespace Controllers;
+
+use Providers\Functions;
+
 class AdminController
 {
   public static function logout(){

@@ -1,5 +1,9 @@
 <?php
 
+namespace Controllers;
+
+use Providers\Functions;
+
 class PublicController
 {
   public static function readTeams(){
