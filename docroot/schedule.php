@@ -37,6 +37,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12" style="color: black">
+                      <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -61,6 +62,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                      </div>
                     </div>
                 </div>
             </div>

@@ -44,30 +44,32 @@ if(!isset($_SESSION['admin_id'])){
                             <div class="col-md-10">
                                 <div class="member_desc">
                                     <input type="text" placeholder="Search" ng-model="searchTeams" class="form-control" style="width: 200px;">
-                                    <table class="table">
-                                        <thead>
-																						<tr>
-																							<th></th>
-	                                            <th>Team ID</th>
-	                                            <th>Team Name</th>
-	                                            <th></th>
-	                                            <th></th>
-																						</tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="x in teams">
-																								<td class="table-index">{{$index + 1}}</td>
-                                                <td>{{x.team_id}}</td>
-                                                <td>{{x.team_name}}</td>
-                                                <td>
-                                                    <button ng-click="adminEditTeam(x.team_id, x.team_name)">edit</button>
-                                                </td>
-                                                <td>
-                                                    <button ng-click="adminDeleteTeam(x.team_id)">delete</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+																		<div class="table-responsive">
+	                                    <table class="table">
+	                                        <thead>
+																							<tr>
+																								<th></th>
+		                                            <th>Team ID</th>
+		                                            <th>Team Name</th>
+		                                            <th></th>
+		                                            <th></th>
+																							</tr>
+	                                        </thead>
+	                                        <tbody>
+	                                            <tr ng-repeat="x in teams">
+																									<td class="table-index">{{$index + 1}}</td>
+	                                                <td>{{x.team_id}}</td>
+	                                                <td>{{x.team_name}}</td>
+	                                                <td>
+	                                                    <button ng-click="adminEditTeam(x.team_id, x.team_name)">edit</button>
+	                                                </td>
+	                                                <td>
+	                                                    <button ng-click="adminDeleteTeam(x.team_id)">delete</button>
+	                                                </td>
+	                                            </tr>
+	                                        </tbody>
+	                                    </table>
+																		</div>
                                 </div>
                             </div>
                         </div>
@@ -105,47 +107,49 @@ if(!isset($_SESSION['admin_id'])){
                                 </form>
                             </div>
                             <div class="col-md-10">
-                                <table class="table" style="overflow-x: scroll;">
-                                    <input type="text" placeholder="Search" ng-model="searchSchedule" class="form-control" style="width: 200px;">
-                                    <thead>
-                                        <tr>
-																						<th></th>
-                                            <th>Game #</th>
-                                            <th>Teams</th>
-                                            <th>Date</th>
-                                            <th>Start Time</th>
-                                            <th>Location</th>
-                                            <th>Results</th>
-                                            <th>Winner</th>
-                                            <th></th>
-                                            <th></th>
-																						<th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="x in schedule | filter: searchSchedule">
-																						<td class="table-index">{{$index + 1}}</td>
-                                            <th>{{x.game_id}}</th>
-                                            <td><strong>{{x.team1_name}}</strong>&nbsp;v.&nbsp;<strong>{{x.team2_name}}</strong></td>
-                                            <td>{{x.date}}</td>
-                                            <td>{{x.game_start}}</td>
-                                            <td>{{x.location}}</td>
-                                            <td>{{x.team1_result}} : {{x.team2_result}}</td>
-                                            <td><strong>{{x.winner_name}}</strong></td>
-                                            <td>
-                                                <button ng-click="adminEditSchedule(x.game_id, x.team1_id, x.team2_id, x.date, x.game_start, x.location, x.team1_result, x.team2_result)">edit</button>
-                                            </td>
-                                            <td>
-                                                <button ng-click="adminDeleteSchedule(x.game_id)">delete</button>
-                                            </td>
-																						<td>
-                                                <button ng-click="addStatsModal(x.game_id, x.team1_id, x.team2_id)"
-																								data-target="#addStatsModal"
-																								data-toggle="modal">Add Stats</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+																<div class="table-responsive">
+	                                <table class="table" style="overflow-x: scroll;">
+	                                    <input type="text" placeholder="Search" ng-model="searchSchedule" class="form-control" style="width: 200px;">
+	                                    <thead>
+	                                        <tr>
+																							<th></th>
+	                                            <th>Game #</th>
+	                                            <th>Teams</th>
+	                                            <th>Date</th>
+	                                            <th>Start Time</th>
+	                                            <th>Location</th>
+	                                            <th>Results</th>
+	                                            <th>Winner</th>
+	                                            <th></th>
+	                                            <th></th>
+																							<th></th>
+	                                        </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                        <tr ng-repeat="x in schedule | filter: searchSchedule">
+																							<td class="table-index">{{$index + 1}}</td>
+	                                            <th>{{x.game_id}}</th>
+	                                            <td><strong>{{x.team1_name}}</strong>&nbsp;v.&nbsp;<strong>{{x.team2_name}}</strong></td>
+	                                            <td>{{x.date}}</td>
+	                                            <td>{{x.game_start}}</td>
+	                                            <td>{{x.location}}</td>
+	                                            <td>{{x.team1_result}} : {{x.team2_result}}</td>
+	                                            <td><strong>{{x.winner_name}}</strong></td>
+	                                            <td>
+	                                                <button ng-click="adminEditSchedule(x.game_id, x.team1_id, x.team2_id, x.date, x.game_start, x.location, x.team1_result, x.team2_result)">edit</button>
+	                                            </td>
+	                                            <td>
+	                                                <button ng-click="adminDeleteSchedule(x.game_id)">delete</button>
+	                                            </td>
+																							<td>
+	                                                <button ng-click="addStatsModal(x.game_id, x.team1_id, x.team2_id)"
+																									data-target="#addStatsModal"
+																									data-toggle="modal">Add Stats</button>
+	                                            </td>
+	                                        </tr>
+	                                    </tbody>
+	                                </table>
+																</div>
                             </div>
                         </div>
                     </div>
@@ -223,44 +227,46 @@ if(!isset($_SESSION['admin_id'])){
                             <div class="col-md-10">
                                 <div class="member_desc">
                                     <input type="text" placeholder="Search" ng-model="searchPlayers" class="form-control" style="width: 200px;">
-                                    <table class="table">
-                                        <thead>
-																						<tr>
-																							<th></th>
-	                                            <th>Player ID</th>
-	                                            <th>Player Name</th>
-	                                            <th>Email</th>
-	                                            <th>Player #</th>
-	                                            <th>Team</th>
-																							<th>Address</th>
-																							<th>Phone Number</th>
-																							<th>Experience</th>
-																							<th>Age</th>
-	                                            <th></th>
-	                                            <th></th>
-																						</tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="x in adminPlayers | filter: searchPlayers">
-																								<td class="table-index">{{$index + 1}}</td>
-                                                <td>{{x.player_id}}</td>
-                                                <td>{{x.first_name}} {{x.last_name}}</td>
-                                                <td>{{x.email}}</td>
-                                                <td>{{x.player_number}}</td>
-                                                <td>{{x.team_name}}</td>
-																								<td>{{x.address}}</td>
-																								<td>{{x.phone_number}}</td>
-																								<td>{{x.experience}}</td>
-																								<td>{{x.age}}</td>
-                                                <td>
-                                                    <button ng-click="adminEditPlayer(x)">edit</button>
-                                                </td>
-                                                <td>
-                                                    <button ng-click="adminDeletePlayer(x.player_id)">delete</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+																		<div class="table-responsive">
+	                                    <table class="table">
+	                                        <thead>
+																							<tr>
+																								<th></th>
+		                                            <th>Player ID</th>
+		                                            <th>Player Name</th>
+		                                            <th>Email</th>
+		                                            <th>Player #</th>
+		                                            <th>Team</th>
+																								<th>Address</th>
+																								<th>Phone Number</th>
+																								<th>Experience</th>
+																								<th>Age</th>
+		                                            <th></th>
+		                                            <th></th>
+																							</tr>
+	                                        </thead>
+	                                        <tbody>
+	                                            <tr ng-repeat="x in adminPlayers | filter: searchPlayers">
+																									<td class="table-index">{{$index + 1}}</td>
+	                                                <td>{{x.player_id}}</td>
+	                                                <td>{{x.first_name}} {{x.last_name}}</td>
+	                                                <td>{{x.email}}</td>
+	                                                <td>{{x.player_number}}</td>
+	                                                <td>{{x.team_name}}</td>
+																									<td>{{x.address}}</td>
+																									<td>{{x.phone_number}}</td>
+																									<td>{{x.experience}}</td>
+																									<td>{{x.age}}</td>
+	                                                <td>
+	                                                    <button ng-click="adminEditPlayer(x)">edit</button>
+	                                                </td>
+	                                                <td>
+	                                                    <button ng-click="adminDeletePlayer(x.player_id)">delete</button>
+	                                                </td>
+	                                            </tr>
+	                                        </tbody>
+	                                    </table>
+																		</div>
                                 </div>
                             </div>
                         </div>
@@ -274,48 +280,50 @@ if(!isset($_SESSION['admin_id'])){
 														<div class="col-md-12">
 																<div class="member_desc">
 																		<input type="text" placeholder="Search" ng-model="searchUnpaid" class="form-control" style="width: 200px;">
-																		<table class="table">
-																				<thead>
-																						<tr>
-																							<th></th>
-																							<th>Record ID</th>
-																							<th>First Name</th>
-																							<th>Last Name</th>
-																							<th>Email</th>
-																							<th>Team Name</th>
-																							<th>Player Number</th>
-																							<th>Address</th>
-																							<th>Phone Number</th>
-																							<th>Stars</th>
-																							<th>Age</th>
-																							<th>Paid</th>
-																							<th></th>
-																							<th></th>
-																						</tr>
-																				</thead>
-																				<tbody>
-																						<tr ng-repeat="x in unpaid | filter: searchUnpaid">
-																								<td class="table-index">{{$index + 1}}</td>
-																								<td>{{x.record_id}}</td>
-																								<td>{{x.first_name}}</td>
-																								<td>{{x.last_name}}</td>
-																								<td>{{x.email}}</td>
-																								<td>{{x.team_name}}</td>
-																								<td>{{x.player_number}}</td>
-																								<td>{{x.address}}</td>
-																								<td>{{x.phone_number}}</td>
-																								<td>{{x.experience}}</td>
-																								<td>{{x.age}}</td>
-																								<td>{{x.paid}}</td>
-																								<td>
-																										<button ng-click="adminPaidUnpaid(x.record_id)">paid</button>
-																								</td>
-																								<td>
-																										<button ng-click="adminDeleteUnpaid(x.record_id)">delete</button>
-																								</td>
-																						</tr>
-																				</tbody>
-																		</table>
+																		<div class="table-responsive">
+																			<table class="table">
+																					<thead>
+																							<tr>
+																								<th></th>
+																								<th>Record ID</th>
+																								<th>First Name</th>
+																								<th>Last Name</th>
+																								<th>Email</th>
+																								<th>Team Name</th>
+																								<th>Player Number</th>
+																								<th>Address</th>
+																								<th>Phone Number</th>
+																								<th>Stars</th>
+																								<th>Age</th>
+																								<th>Paid</th>
+																								<th></th>
+																								<th></th>
+																							</tr>
+																					</thead>
+																					<tbody>
+																							<tr ng-repeat="x in unpaid | filter: searchUnpaid">
+																									<td class="table-index">{{$index + 1}}</td>
+																									<td>{{x.record_id}}</td>
+																									<td>{{x.first_name}}</td>
+																									<td>{{x.last_name}}</td>
+																									<td>{{x.email}}</td>
+																									<td>{{x.team_name}}</td>
+																									<td>{{x.player_number}}</td>
+																									<td>{{x.address}}</td>
+																									<td>{{x.phone_number}}</td>
+																									<td>{{x.experience}}</td>
+																									<td>{{x.age}}</td>
+																									<td>{{x.paid}}</td>
+																									<td>
+																											<button ng-click="adminPaidUnpaid(x.record_id)">paid</button>
+																									</td>
+																									<td>
+																											<button ng-click="adminDeleteUnpaid(x.record_id)">delete</button>
+																									</td>
+																							</tr>
+																					</tbody>
+																			</table>
+																		</div>
 																</div>
 														</div>
 												</div>
@@ -342,32 +350,34 @@ if(!isset($_SESSION['admin_id'])){
 														<div class="col-md-10">
 																<div class="member_desc">
 																		<input type="text" placeholder="Search" ng-model="searchAdmins" class="form-control" style="width: 200px;">
-																		<table class="table">
-																				<thead>
-																						<tr>
-																							<th></th>
-																							<th>Admin ID</th>
-																							<th>Full Name</th>
-																							<th>Email</th>
-																							<th></th>
-																							<th></th>
-																						</tr>
-																				</thead>
-																				<tbody>
-																						<tr ng-repeat="x in admins | filter: searchAdmins">
-																								<td class="table-index">{{$index + 1}}</td>
-																								<td>{{x.admin_id}}</td>
-																								<td>{{x.admin_name}}</td>
-																								<td>{{x.admin_email}}</td>
-																								<td>
-																										<button ng-click="adminEdit(x)">Edit</button>
-																								</td>
-																								<td>
-																										<button ng-click="adminDelete(x.admin_id)">Delete</button>
-																								</td>
-																						</tr>
-																				</tbody>
-																		</table>
+																		<div class="table-responsive">
+																			<table class="table">
+																					<thead>
+																							<tr>
+																								<th></th>
+																								<th>Admin ID</th>
+																								<th>Full Name</th>
+																								<th>Email</th>
+																								<th></th>
+																								<th></th>
+																							</tr>
+																					</thead>
+																					<tbody>
+																							<tr ng-repeat="x in admins | filter: searchAdmins">
+																									<td class="table-index">{{$index + 1}}</td>
+																									<td>{{x.admin_id}}</td>
+																									<td>{{x.admin_name}}</td>
+																									<td>{{x.admin_email}}</td>
+																									<td>
+																											<button ng-click="adminEdit(x)">Edit</button>
+																									</td>
+																									<td>
+																											<button ng-click="adminDelete(x.admin_id)">Delete</button>
+																									</td>
+																							</tr>
+																					</tbody>
+																			</table>
+																		</div>
 																</div>
 														</div>
 												</div>
