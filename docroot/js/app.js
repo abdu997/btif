@@ -141,10 +141,9 @@ app.controller('leagueController', function($scope, $http) {
   }
 
   $scope.getSchedule = function(team_id) {
-    if(team_id){
+    if(!team_id){
       team_id = null;
     }
-
     $http.post($scope.apiRoot + "readSchedule", {
       team_id: team_id
     }).success(function(data) {
