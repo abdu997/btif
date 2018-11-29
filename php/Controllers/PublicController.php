@@ -51,7 +51,6 @@ class PublicController
   		return Functions::createUnpaidOrder($first_name, $last_name, $team_id, $team_name, $email, $player_number, $address, $phone_number, $age, $experience);
   	} else {
   		return Functions::team_leader_check($email);
-  		return Functions::team_name_check($team_name);
   	}
   }
 
@@ -77,7 +76,6 @@ class PublicController
   		return Functions::createUnpaidOrder($action, $first_name, $last_name, $team_id, $team_name, $email, $player_number, $address, $phone_number, $age, $experience);
   	} else {
   		return Functions::team_leader_check($email);
-  		return Functions::team_name_check($team_name);
   	}
   }
 
