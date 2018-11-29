@@ -36,19 +36,82 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12" style="color: black">
-                      <iframe style="width: 100%; height: 100%;" src="https://form.jotform.com/82946191672264">
-                      </iframe>
+                      <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                          <a onclick="openGallery(event, 'night')" class="nav-link active" href="#">Night League</a>
+                        </li>
+                        <li class="nav-item">
+                          <a onclick="openGallery(event, 'youth')" class="nav-link" href="#">Youth League</a>
+                        </li>
+                      </ul>
                     </div>
                 </div>
+              <div id="night" class="tabcontent">
+                <div class="section-title title-ex1">
+  								<h2 class="">Night League Gallery</h2>
+							  </div>
+                <div class="row">
+                  <?
+                    foreach(glob("img/gallery/night/*") as $image){
+                      echo '
+                      <div class="col-md-3">
+                        <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="250px">
+                      </div>
+                      ';
+                    }
+                  ?>
+              </div>
             </div>
+            <div id="youth" class="tabcontent">
+              <div class="section-title title-ex1">
+                <h2 class="">Youth League Gallery</h2>
+              </div>
+              <div class="row">
+                <?
+                  foreach(glob("img/gallery/youth/*") as $image){
+                    echo '
+                    <div class="col-md-3">
+                      <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="250px">
+                    </div>
+                    ';
+                  }
+                ?>
+            </div>
+          </div>
         </section>
 
         <!-- FOOTER -->
         <?php include "foot-nav.php";?>
+
     </div>
 
 
     <!-- JAVASCRIPTS -->
+    <script>
+        function openGallery(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    <style>
+      .tabcontent {
+          display: none;
+          padding: 6px 12px;
+          border-top: none;
+      }
+      .table-index {
+        background: lightgray
+      }
+    </style>
     <?php include "js-compile.php";?>
 
 </body>
