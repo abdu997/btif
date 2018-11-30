@@ -47,9 +47,6 @@
                     </div>
                 </div>
               <div id="night" class="tabcontent">
-                <div class="section-title title-ex1">
-  								<h2 class="">Night League Gallery</h2>
-							  </div>
                 <div class="row">
                   <?
                     foreach(glob("img/gallery/night/*") as $image){
@@ -63,9 +60,6 @@
               </div>
             </div>
             <div id="youth" class="tabcontent">
-              <div class="section-title title-ex1">
-                <h2 class="">Youth League Gallery</h2>
-              </div>
               <div class="row">
                 <?
                   foreach(glob("img/gallery/youth/*") as $image){
@@ -78,6 +72,8 @@
                 ?>
             </div>
           </div>
+          <a href="http://cpanel.anklebreaker.ca/cpsess6218831714/frontend/paper_lantern/filemanager/index.html" target="_blank">Edit Images</div>
+        </div>
         </section>
 
         <!-- FOOTER -->
