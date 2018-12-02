@@ -33,46 +33,65 @@
             </div>
         </section>
         <section class="bg-sand hero-block home-about">
+          <style>
+            .btn.btn-primary.active {
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+          </style>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12" style="color: black">
-                      <ul class="nav justify-content-center">
-                        <li class="nav-item">
-                          <a onclick="openGallery(event, 'night')" class="nav-link active" href="#">Night League</a>
-                        </li>
-                        <li class="nav-item">
-                          <a onclick="openGallery(event, 'youth')" class="nav-link" href="#">Youth League</a>
-                        </li>
-                      </ul>
+                <ul class="nav" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="btn btn-primary active" id="night-tab" data-toggle="tab" href="#night" role="tab" aria-controls="night" aria-selected="true">Night League</a>
+                  </li>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <li class="nav-item">
+                    <a class="btn btn-primary" id="youth-tab" data-toggle="tab" href="#youth" role="tab" aria-controls="youth" aria-selected="false">Youth League</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="night" role="tabpanel" aria-labelledby="night-tab">
+                    <div class="row">
+                      <?
+                        foreach(glob("img/gallery/night/*") as $image){
+                          echo '
+                          <div class="col-md-3">
+                            <a href="'.$image.'" target="_blank">
+                              <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="250px">
+                            </a>
+                          </div>
+                          ';
+                        }
+                      ?>
                     </div>
+                  </div>
+                  <div class="tab-pane" id="youth" role="tabpanel" aria-labelledby="youth-tab">
+                    <div class="row">
+                      <?
+                        foreach(glob("img/gallery/youth/*") as $image){
+                          echo '
+                          <div class="col-md-3">
+                            <a href="'.$image.'" target="_blank">
+                              <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="250px">
+                            </a>
+                          </div>
+                          ';
+                        }
+                      ?>
+                  </div>
+                  </div>
                 </div>
-              <div id="night" class="tabcontent">
-                <div class="row">
-                  <?
-                    foreach(glob("img/gallery/night/*") as $image){
-                      echo '
-                      <div class="col-md-3">
-                        <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="250px">
-                      </div>
-                      ';
-                    }
-                  ?>
-              </div>
-            </div>
-            <div id="youth" class="tabcontent">
-              <div class="row">
-                <?
-                  foreach(glob("img/gallery/youth/*") as $image){
-                    echo '
-                    <div class="col-md-3">
-                      <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="250px">
-                    </div>
-                    ';
-                  }
-                ?>
-            </div>
+
+                <script>
+                  $(function () {
+                    $('#myTab li:first-child a').tab('show')
+                  })
+                </script>
+          <center>
+            <a href="http://cpanel.anklebreaker.ca/cpsess6218831714/frontend/paper_lantern/filemanager/index.html" target="_blank">
+              <i class="fa fa-cogs"></i>
+            </a>
+          </center>
           </div>
-          <a href="http://cpanel.anklebreaker.ca/cpsess6218831714/frontend/paper_lantern/filemanager/index.html" target="_blank">Edit Images</div>
         </div>
         </section>
 
@@ -81,33 +100,6 @@
 
     </div>
 
-
-    <!-- JAVASCRIPTS -->
-    <script>
-        function openGallery(evt, cityName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-    </script>
-    <style>
-      .tabcontent {
-          display: none;
-          padding: 6px 12px;
-          border-top: none;
-      }
-      .table-index {
-        background: lightgray
-      }
-    </style>
     <?php include "js-compile.php";?>
 
 </body>
