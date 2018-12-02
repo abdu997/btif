@@ -56,7 +56,7 @@
                           echo '
                           <div class="col-md-4">
                             <a href="'.$image.'" target="_blank">
-                              <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="250px">
+                              <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="350px">
                             </a>
                           </div>
                           ';
@@ -71,7 +71,7 @@
                           echo '
                           <div class="col-md-4">
                             <a href="'.$image.'" target="_blank">
-                              <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="250px">
+                              <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="350px">
                             </a>
                           </div>
                           ';
