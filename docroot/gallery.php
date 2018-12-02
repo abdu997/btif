@@ -54,7 +54,7 @@
                       <?
                         foreach(glob("img/gallery/night/*") as $image){
                           echo '
-                          <div class="col-md-3">
+                          <div class="col-md-4">
                             <a href="'.$image.'" target="_blank">
                               <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="250px">
                             </a>
@@ -69,7 +69,7 @@
                       <?
                         foreach(glob("img/gallery/youth/*") as $image){
                           echo '
-                          <div class="col-md-3">
+                          <div class="col-md-4">
                             <a href="'.$image.'" target="_blank">
                               <img src="'.$image.'" class="rounded" style="margin-bottom: 10px;" width="250px">
                             </a>
