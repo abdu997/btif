@@ -151,13 +151,25 @@
 												<div class="col-md-8">
 													<h2>Announcements</h2>
 														<hr class="hr_narrow  hr_color">
-														<p style="font-size: 15px"><strong>Registration NOW OPEN</strong>
-															<br>
-															Youth Basketball Saturdays Canterbury 3:30-5:30
-															<br>
-															Night League Lees Gym Saturdays 7- Midnight
+														<p style="font-size: 15px"><strong>March Break Summer Camp</strong>
 														</p>
+														<br>
 												</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<center>
+													<a href="https://adamb7.typeform.com/to/kGruqK">
+														<img src="img/poster.jpg" class="img-fluid" width="300px"/>
+													</a>
+												</center>
+												<center>
+													<a href="https://adamb7.typeform.com/to/kGruqK">
+														<button class="btn btn-lg btn-primary ml-auto">Count Me In!</button>
+													</a>
+												</center>
+											</div>
+
 										</div>
 								</div>
 								<!-- container ends -->
