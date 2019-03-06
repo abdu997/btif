@@ -244,7 +244,7 @@ $GLOBALS['routes'] =  [
     'route' => '/',
     'auth' => ['admin'],
     'filename' => 'dashboard.php',
-    'auth_fail_redirect' => '/btif/login'
+    'auth_fail_redirect' => '/login'
   ],
   [
     'type' => 'view',
