@@ -123,7 +123,7 @@ app.controller('leagueController', function($scope, $http) {
       if (data.status === "success") {
         $("#joinTeamError").addClass("success");
         errorReporting(data.status);
-        window.location.href = "night-membership";
+        document.getElementById("joinTeamForm").reset();
       } else {
         errorReporting(data.message);
       }
@@ -169,7 +169,7 @@ app.controller('leagueController', function($scope, $http) {
       password: loginPassword
     }).success(function(data) {
       if(data.status === "success"){
-        window.location = $scope.domain + "/";
+        window.location.href = "/";
       } else {
         document.getElementById("loginResponse").innerHTML = data.message;
       }

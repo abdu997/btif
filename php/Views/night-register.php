@@ -32,7 +32,7 @@
 										</div>
 									</div>
 								</div>
-								<form>
+								<form id="joinTeamForm">
 									<div id="joinTeamError" class="hidden error-messsage"></div>
 									<div class="form-group row">
 										<label class="col-md-2 col-form-label">First Name</label>
