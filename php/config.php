@@ -35,7 +35,7 @@ $GLOBALS['DB'] =  [
     'db' => 'btif'
   ],
   [
-    'condition' => $_SERVER['SERVER_NAME'] === "balltillifall.ca",
+    'condition' => $_SERVER['SERVER_NAME'] === "app.balltillifall.ca",
     'servername' => 'localhost',
     'username' => 'btif_league_user',
     'password' => '.61u?]thdf]U',
