@@ -12,6 +12,11 @@ class AdminController
     }
   }
 
+  public static function sessionExists()
+  {
+    return isset($_SESSION['admin_id']);
+  }
+
   public static function adminCreateEditTeam(){
     $team_name = $_POST['team_name'];
     if($_POST['form_button'] === "Edit") {
@@ -112,10 +117,7 @@ class AdminController
 
   public static function readAdmins()
   {
-    return [
-      'status' => 'success',
-      'result' => Functions::getAdmins()
-    ];
+    return Functions::getAdmins();
   }
 
   public static function createAdmin()

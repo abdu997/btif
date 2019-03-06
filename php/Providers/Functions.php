@@ -13,7 +13,7 @@ class Functions
 		$result = mysqli_query(DB::connect(), $sql);
 		$count = mysqli_num_rows($result);
 		if ($count > "0"){
-			return ['status' => 'error', 'message' => 'A team leader cannot be in multiple teams'];
+			trigger_error('A team leader cannot be in multiple teams');
 			} else {
 			return true;
 		}
@@ -25,7 +25,7 @@ class Functions
 		$result = mysqli_query(DB::connect(), $sql);
 		$count = mysqli_num_rows($result);
 		if ($count > "0"){
-			return ['status' => 'error', 'message' => 'Team name must be unique, check the teams page to see taken names. <a href="teams.php">Click here.</a>'];
+			trigger_error('Team name must be unique, check the teams page to see taken names. <a href="teams.php">Click here.</a>');
 		} else {
 			return true;
 		}
@@ -160,34 +160,34 @@ class Functions
 				$_SESSION['admin_id'] = $row['admin_id'];
 				$_SESSION['admin_name'] = $row['admin_name'];
 				$_SESSION['admin_email'] = $email;
-				return ['status' => 'success'];
+				return 'success';
 			} else {
-				return ['status' => 'error', 'message' => 'Password is incorrect'];
+				trigger_error('Password is incorrect');
 			}
 		} else {
-			return ['status' => 'error', 'message' => 'Email is in correct'];
+			trigger_error('Email is in correct');
 		}
 	}
 
 	public static function adminCreateTeam($team_name){
 
 		if(!self::uniqueTeamName($team_name)){
-			return ['status' => 'error', 'message' => 'The team name you chose has been taken'];
+			trigger_error('The team name you chose has been taken');
 		}
 		$sql = "INSERT INTO teams(team_name) VALUES('$team_name')";
 		if(mysqli_query(DB::connect(), $sql)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
 	public static function adminUpdateTeam($team_id, $team_name) {
 
 		if(!self::uniqueTeamName($team_name)){
-			return ['status' => 'error', 'message' => 'The team name you chose has been taken'];
+			trigger_error('The team name you chose has been taken');
 		}
 		$sql = "UPDATE teams SET team_name = '$team_name' WHERE team_id = '$team_id'";
 		if(mysqli_query(DB::connect(), $sql)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
@@ -203,7 +203,7 @@ class Functions
 
 		$sql = "DELETE FROM team_player WHERE team_id = '$team_id'";
 		if(mysqli_query(DB::connect(), $sql)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
@@ -233,7 +233,7 @@ class Functions
 		}
 		$sql = "INSERT INTO schedule(team1_id, team2_id, date, game_start, location, team1_result, team2_result, winner_id, played) VALUES('$team1', '$team2', '$scheduleDate', '$scheduleTime', '$scheduleLocation', '$team1Result', '$team2Result', '$winner_id', '$played')";
 		if(mysqli_query(DB::connect(), $sql)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
@@ -263,7 +263,7 @@ class Functions
 		}
 		$sql = "UPDATE schedule SET team1_id = '$team1', team2_id = '$team2', date = '$scheduleDate', game_start = '$scheduleTime', location = '$scheduleLocation', team1_result = '$team1Result', team2_result = '$team2Result', winner_id = '$winner_id', played = '$played' WHERE game_id = '$game_id'";
 		if(mysqli_query(DB::connect(), $sql)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
@@ -271,7 +271,7 @@ class Functions
 
 		$sql = "DELETE FROM schedule WHERE game_id = '$game_id'";
 		if(mysqli_query(DB::connect(), $sql)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
@@ -279,10 +279,10 @@ class Functions
 
 		if(!isset($_SESSION['record_id'])){
 			if(!self::uniquePlayerNumber($team_id, $player_number, $record_id)){
-				return ['status' => 'error', 'message' => 'The player number you chose has been taken'];
+				trigger_error('The player number you chose has been taken');
 			}
 			if(self::fetchTeamInfo($team_id)[0]['team_count'] >= 15){
-				return ['status' => 'error', 'message' => 'This team has already reached the limit of 15 players'];
+				trigger_error('This team has already reached the limit of 15 players');
 			}
 		}
 		$sql = "INSERT INTO players(first_name, last_name, email, address, phone_number, age, experience) VALUES('$player_first_name', '$player_last_name', '$email', '$address', '$phone_number', '$age', '$experience')";
@@ -323,7 +323,7 @@ class Functions
 
 		$sql = "INSERT INTO team_player(player_id, team_id, player_number) VALUES('$player_id', '$team_id', '$player_number')";
 		if(mysqli_query(DB::connect(), $sql)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
@@ -357,7 +357,7 @@ class Functions
 
 	public static function adminUpdatePlayer($player_id, $player_first_name, $player_last_name, $email, $team_id, $player_number, $address, $phone_number, $age, $experience){
 		if(self::fetchTeamInfo($team_id)[0]['team_count'] >= 15){
-			return ['status' => 'error', 'message' => 'This team has already reached the limit of 15 players'];
+			trigger_error('This team has already reached the limit of 15 players');
 		}
 		$sql = "UPDATE players SET first_name = '$player_first_name', last_name = '$player_last_name', email = '$email', address = '$address', phone_number = '$phone_number', age = '$age', experience = '$experience' WHERE player_id = '$player_id'";
 		if(mysqli_query(DB::connect(), $sql)){
@@ -369,7 +369,7 @@ class Functions
 
 		$sql = "UPDATE team_player SET team_id = '$team_id', player_number = '$player_number' WHERE player_id = '$player_id'";
 		if(mysqli_query(DB::connect(), $sql)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
@@ -378,7 +378,7 @@ class Functions
 		$sql = "DELETE FROM players WHERE player_id = '$player_id'";
 		$sql2 = "DELETE FROM team_player WHERE player_id = '$player_id'";
 		if(mysqli_query(DB::connect(), $sql) && mysqli_query(DB::connect(), $sql2)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
@@ -386,19 +386,19 @@ class Functions
 
 		$sql = "INSERT INTO player_stats(player_id, game_id, points, assists, rebounds, blocks, turn_overs) VALUES( '$player_id', '$game_id', '$points', '$assists', '$rebounds', '$blocks', '$turnovers')";
 		if(mysqli_query(DB::connect(), $sql)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
 	public static function createUnpaidOrder($action, $first_name, $last_name, $team_id, $team_name, $email, $player_number, $address, $phone_number, $age, $experience){
 		$timestamp = DB::timestamp();
 		if(!self::uniquePlayerNumber($team_id, $player_number)){
-			return ['status' => 'error', 'message' => 'The player number you chose has been taken'];
+			trigger_error('The player number you chose has been taken');
 		}
 		$sql = "INSERT INTO unpaid_memberships(first_name, last_name, email, team_id, order_type, player_number, address, phone_number, age, experience, timestamp) VALUES('$first_name', '$last_name', '$email', '$team_id', '$action', '$player_number', '$address', '$phone_number', '$age', '$experience', '$timestamp')";
 		if(mysqli_query(DB::connect(), $sql)){
 			$_SESSION['record_id'] = mysqli_insert_id(DB::connect());
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
@@ -420,7 +420,7 @@ class Functions
 
 		$sql = "DELETE FROM unpaid_memberships WHERE record_id = '$record_id' AND paid = 'false'";
 		if(mysqli_query(DB::connect(), $sql)){
-			return ['status' => 'success'];
+			return 'success';
 		}
 	}
 
@@ -436,7 +436,7 @@ class Functions
 
 	  $sql = "UPDATE unpaid_memberships SET paid = 'true' WHERE record_id = '$record_id'";
 	  if(mysqli_query(DB::connect(), $sql)){
-	    return ['status' => 'success'];
+	    return 'success';
 	  }
 	}
 
@@ -460,10 +460,7 @@ class Functions
 		$experience = $record['experience'];
 
 		if($record['paid'] === "true"){
-			return [
-				'status' => 'error',
-				'message' => 'Already paid'
-			];
+			trigger_error('Already paid');
 		}
 		if($record['order_type'] === "createTeam"){
 		  $team_id = self::createTeamFromUnpaid($team_name);
@@ -476,7 +473,7 @@ class Functions
 				if(isset($_SESSION['record_id']) || !isset($_SESSION['admin_id'])){
 					unset($_SESSION['record_id']);
 				}
-				return ['status' => 'success'];
+				return 'success';
 			}
 		} else {
 			return $createPlayer;
@@ -492,21 +489,13 @@ class Functions
 		$headers .= 'From: <'.$email.'>' . "\r\n";
 		$headers .= 'X-Mailer: PHP/' . phpversion();
 		if ($name === null || $message === null) {
-			return [
-				'status' => 'error',
-				'message' => 'Name and message cannot be empty'
-			];
+			trigger_error('Name and message cannot be empty');
 		}
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-			return [
-				'status' => 'error',
-				'message' => 'Email must be valid'
-			];
+			trigger_error('Email must be valid');
 		}
 		if(mail($to,$subject,$body,$headers)){
-			return [
-				'status' => 'success',
-			];
+			return 'success';
 		}
 	}
 
