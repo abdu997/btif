@@ -1,20 +1,20 @@
-<script src="Functions::maps.googleapis.com/maps/api/js?key=AIzaSyCsQdSlW4vj5RvXp2_pLnv1s1ErfxjM5_o"></script>
-<script src="plugins/jquery/jquery-migrate-3.0.0.min.js"></script>
-<script src="plugins/bootstrap/js/tether.min.js"></script>
-<script src="plugins/bootstrap/js/popper.min.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-<script src="plugins/slick/slick.min.js"></script>
-<script src="plugins/circle-progress/jquery.appear.js"></script>
-<script src="plugins/isotope/isotope.min.js"></script>
-<script src="plugins/fancybox/jquery.fancybox.min.js"></script>
-<script src="plugins/counterUp/waypoint.js"></script>
-<script src="plugins/counterUp/jquery.counterup.js"></script>
-<script src="plugins/smoothscroll/SmoothScroll.js"></script>
-<script src="plugins/syotimer/jquery.syotimer.min.js"></script>
-<script type="text/javascript" src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="/Functions::maps.googleapis.com/maps/api/js?key=AIzaSyCsQdSlW4vj5RvXp2_pLnv1s1ErfxjM5_o"></script>
+<script src="/plugins/jquery/jquery-migrate-3.0.0.min.js"></script>
+<script src="/plugins/bootstrap/js/tether.min.js"></script>
+<script src="/plugins/bootstrap/js/popper.min.js"></script>
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+<script src="/plugins/slick/slick.min.js"></script>
+<script src="/plugins/circle-progress/jquery.appear.js"></script>
+<script src="/plugins/isotope/isotope.min.js"></script>
+<script src="/plugins/fancybox/jquery.fancybox.min.js"></script>
+<script src="/plugins/counterUp/waypoint.js"></script>
+<script src="/plugins/counterUp/jquery.counterup.js"></script>
+<script src="/plugins/smoothscroll/SmoothScroll.js"></script>
+<script src="/plugins/syotimer/jquery.syotimer.min.js"></script>
+<script type="text/javascript" src="/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="/js/custom.js"></script>
 <script>
     /////////////////////////////////////////////////////////////////////
     // Animation on scroll
