@@ -139,7 +139,7 @@ app.controller('leagueController', function($scope, $http) {
   }
 
   $scope.teamSelect = function(team_id, index) {
-    window.open('team.php?id=' + team_id + '&standing=' + index, "_self");
+    window.open('team/' + team_id, "_self");
   }
 
   $scope.getSchedule = function(team_id) {

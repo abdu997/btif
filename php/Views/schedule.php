@@ -17,21 +17,6 @@
         </div>
     </div>
     <div class="main-wrapper">
-        <section class="">
-            <div class="bg-image-holder bredcrumb bg-primary">
-                <!-- style="background-image: url('img/promo-1.jpg');" -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h2>Schedule </h2>
-                            <hr class="hr_narrow  hr_color">
-                            <p>Players are advised to be present 20 minutes before their game</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- container ends -->
-            </div>
-        </section>
         <section class="bg-sand hero-block home-about">
             <div class="container">
                 <div class="row">
@@ -68,7 +53,6 @@
         </section>
 
         <!-- FOOTER -->
-        <?php include "foot-nav.php";?>
     </div>
 
 

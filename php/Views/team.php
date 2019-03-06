@@ -1,10 +1,10 @@
 <html lang="en">
 
 <head>
-	<?php include "head.php"?>
+	<?php include "head.php";?>
 </head>
 
-<body id="body" class="b-element" ng-app="leagueApp" ng-controller="leagueController" ng-init="getTeams(<?php echo $_GET['id']; ?>); getSchedule(<?php echo $_GET['id']; ?>); getStats(<?php echo $_GET['id']; ?>);">
+<body id="body" class="b-element" ng-app="leagueApp" ng-controller="leagueController" ng-init="getTeams(<?php echo $_GET[1]; ?>); getSchedule(<?php echo $_GET[1]; ?>); getStats(<?php echo $_GET[1]; ?>);">
 	<!-- Preloader -->
 	<div id="preloader" class="smooth-loader-wrapper">
 		<div class="smooth-loader">
@@ -17,19 +17,6 @@
 		</div>
 	</div>
 		<div class="main-wrapper">
-			<section class="">
-				<div class="bg-image-holder bredcrumb bg-primary">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8">
-								<h2>Team Info </h2>
-								<hr class="hr_narrow hr_color">
-							</div>
-						</div>
-					</div>
-					<!-- container ends -->
-				</div>
-			</section>
 			<!-- Member details -->
 			<section class="member-details">
 				<div class="container">
@@ -97,8 +84,6 @@
 					</div>
 				</div>
 			</section>
-			<!-- FOOTER -->
-			<?php include "foot-nav.php";?>
 		</div>
 		<!-- JAVASCRIPTS -->
 		<?php include "js-compile.php";?>

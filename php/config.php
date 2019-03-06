@@ -51,7 +51,8 @@ $GLOBALS['timezone'] =  'America/New_York';
  */
 $GLOBALS['allowed_hostnames'] =  [
   "http://localhost",
-  "http://balltillifall.ca"
+  "https://balltillifall.ca",
+  "https://app.balltillifall.ca",
 ];
 $GLOBALS['Access_Control_Allow_Credentials'] =  true;
 $GLOBALS['auth_groups'] =  [
@@ -245,6 +246,30 @@ $GLOBALS['routes'] =  [
     'filename' => 'dashboard.php',
     'auth_fail_redirect' => '/btif/login'
   ],
+  [
+    'type' => 'view',
+    'route' => '/schedule',
+    'auth' => ['public'],
+    'filename' => 'schedule.php',
+  ],
+  [
+    'type' => 'view',
+    'route' => '/teams',
+    'auth' => ['public'],
+    'filename' => 'teams.php',
+  ],
+  [
+    'type' => 'view',
+    'route' => '/night-register',
+    'auth' => ['public'],
+    'filename' => 'night-register.php',
+  ],
+  [
+    'type' => 'view',
+    'route' => '/^\/team\/(.*)/',
+    'auth' => ['public'],
+    'filename' => 'team.php',
+  ],
 ];
 
 /**
@@ -276,4 +301,3 @@ $GLOBALS['number'] =  "";
  error_log($_SERVER['REQUEST_URI']);
  include_once 'Utilities/Data.php';
  $_POST = Utilities\Data::convertObjToArr(json_decode(file_get_contents("php://input")));
- error_log(print_r($_POST,1));
