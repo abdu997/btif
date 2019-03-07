@@ -16,8 +16,8 @@
             </div>
         </div>
     </div>
-    <div class="main-wrapper">
-        <section class="bg-sand hero-block home-about">
+    <div class="main-wrapper bg-sand">
+        <section class="home-about">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12" style="color: black">

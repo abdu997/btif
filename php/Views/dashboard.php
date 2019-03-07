@@ -7,7 +7,7 @@
         <script src="js/angular.min.js"></script>
         <script src="js/app.js"></script>
         <script src="js/angular-sanitize.js"></script>
-        <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     </head>
 
     <body id="body" class="b-element bg-sand" ng-app="leagueApp" ng-controller="leagueController">

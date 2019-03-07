@@ -16,9 +16,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="main-wrapper">
-		<section class="home-blog bg-sand" ng-init="getTeams()">
-			<div class="container">
+	<div class="main-wrapper bg-sand">
+		<section ng-init="getTeams()">
+			<div>
 				<div class="row ">
 					<div class="col-md-6" ng-repeat="x in teams | orderBy: '-standing'">
 						<div ng-click="teamSelect(x.team_id, $index+1)" class="media blog-media">

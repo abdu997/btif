@@ -16,10 +16,10 @@
 			</div>
 		</div>
 	</div>
-		<div class="main-wrapper">
+		<div class="main-wrapper bg-sand">
 			<!-- Member details -->
-			<section class="member-details">
-				<div class="container">
+			<section>
+				<div>
 					<div class="row">
 						<div class="col-md-4">
 							<div class="img-container">
