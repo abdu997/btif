@@ -3,7 +3,7 @@
 }
 
 iframe {
-	overflow-x: scroll;
+	overflow: auto;
 }
 
 .navbar-sticky {
