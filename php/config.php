@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_log(isset($_SESSION['admin_id']));
 /**
  * PHP backend code folders
  *
@@ -298,6 +297,5 @@ $GLOBALS['number'] =  "";
  if($_SERVER['SERVER_NAME'] === "localhost"){
    $_SERVER['REQUEST_URI'] = str_replace('/btif', '', $_SERVER['REQUEST_URI']);
  }
- error_log($_SERVER['REQUEST_URI']);
  include_once 'Utilities/Data.php';
  $_POST = Utilities\Data::convertObjToArr(json_decode(file_get_contents("php://input")));

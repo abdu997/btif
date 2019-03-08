@@ -8,7 +8,6 @@ class Functions
 {
 	// Checks if team leader is not in another team
 	public static function team_leader_check($email){
-
 		$sql = "SELECT * FROM players WHERE email = '$email'";
 		$result = mysqli_query(DB::connect(), $sql);
 		$count = mysqli_num_rows($result);
@@ -18,9 +17,9 @@ class Functions
 			return true;
 		}
 	}
+
 	// Checks if team name is unique
 	public static function team_name_check($team_name){
-
 		$sql = "SELECT * FROM teams WHERE team_name = '$team_name'";
 		$result = mysqli_query(DB::connect(), $sql);
 		$count = mysqli_num_rows($result);
@@ -308,10 +307,8 @@ class Functions
 	}
 
 	public static function uniqueTeamName($team_name){
-
-		$sql = "SELECT team_name FROM teams WHERE team_name = '$team_name' UNION ALL SELECT team_name FROM unpaid_memberships WHERE team_name = '$team_name'";
-		$result = mysqli_query(DB::connect(), $sql);
-		$count = mysqli_num_rows($result);
+		$result = DB::select("SELECT team_name FROM teams WHERE team_name = '$team_name' UNION ALL SELECT team_name FROM unpaid_memberships WHERE team_name = '$team_name'");
+		$count = sizeof($result);
 		if($count > 0){
 			return false;
 		} else {
@@ -321,20 +318,18 @@ class Functions
 
 	public static function createTeamPlayerConnection($player_id, $player_number, $team_id){
 
-		$sql = "INSERT INTO team_player(player_id, team_id, player_number) VALUES('$player_id', '$team_id', '$player_number')";
-		if(mysqli_query(DB::connect(), $sql)){
+		if(DB::insert("INSERT INTO team_player(player_id, team_id, player_number) VALUES('$player_id', '$team_id', '$player_number')")){
 			return 'success';
 		}
 	}
 
 	public static function adminReadPlayers(){
-
-		$sql = "SELECT * FROM players";
-		$result = mysqli_query(DB::connect(), $sql);
+		$result = DB::select("SELECT * FROM players");
 		$output = [];
-		while($row = mysqli_fetch_array($result)){
-			$row['team_id'] = self::fetchPlayerTeam($row['player_id'])['team_id'];
-			$row['player_number'] = self::fetchPlayerTeam($row['player_id'])['player_number'];
+		foreach($result as $row){
+			$player_team = self::fetchPlayerTeam($row['player_id']);
+			$row['team_id'] = $player_team['team_id'];
+			$row['player_number'] = $player_team['player_number'];
 			$row['team_name'] = self::fetchPlayerTeamName($row['team_id'])['team_name'];
 			$output[] = $row;
 		}
@@ -342,42 +337,37 @@ class Functions
 	}
 
 	public static function fetchPlayerTeam($player_id){
-
-		$sql = "SELECT team_id, player_number FROM team_player WHERE player_id = '$player_id'";
-		$result = mysqli_query(DB::connect(), $sql);
-		return mysqli_fetch_array($result);
+		return DB::selectOne("SELECT team_id, player_number FROM team_player WHERE player_id = '$player_id'");
 	}
 
 	public static function fetchPlayerTeamName($team_id){
-
-		$sql = "SELECT team_name FROM teams WHERE team_id = '$team_id'";
-		$result = mysqli_query(DB::connect(), $sql);
-		return mysqli_fetch_array($result);
+		return DB::selectOne("SELECT team_name FROM teams WHERE team_id = '$team_id'");
 	}
 
 	public static function adminUpdatePlayer($player_id, $player_first_name, $player_last_name, $email, $team_id, $player_number, $address, $phone_number, $age, $experience){
 		if(self::fetchTeamInfo($team_id)[0]['team_count'] >= 15){
 			trigger_error('This team has already reached the limit of 15 players');
 		}
-		$sql = "UPDATE players SET first_name = '$player_first_name', last_name = '$player_last_name', email = '$email', address = '$address', phone_number = '$phone_number', age = '$age', experience = '$experience' WHERE player_id = '$player_id'";
-		if(mysqli_query(DB::connect(), $sql)){
+		if(
+			DB::update(
+				"UPDATE players SET first_name = '$player_first_name', last_name = '$player_last_name', email = '$email', address = '$address', phone_number = '$phone_number', age = '$age', experience = '$experience' WHERE player_id = '$player_id'"
+				)
+		){
 			return self::changePlayerTeam($player_id, $team_id, $player_number);
 		}
 	}
 
 	public static function changePlayerTeam($player_id, $team_id, $player_number){
-
-		$sql = "UPDATE team_player SET team_id = '$team_id', player_number = '$player_number' WHERE player_id = '$player_id'";
-		if(mysqli_query(DB::connect(), $sql)){
+		if(DB::update("UPDATE team_player SET team_id = '$team_id', player_number = '$player_number' WHERE player_id = '$player_id'")){
 			return 'success';
 		}
 	}
 
 	public static function adminDeletePlayer($player_id){
 
-		$sql = "DELETE FROM players WHERE player_id = '$player_id'";
-		$sql2 = "DELETE FROM team_player WHERE player_id = '$player_id'";
-		if(mysqli_query(DB::connect(), $sql) && mysqli_query(DB::connect(), $sql2)){
+		$sql = DB::query("DELETE FROM players WHERE player_id = '$player_id'");
+		$sql2 = DB::query("DELETE FROM team_player WHERE player_id = '$player_id'");
+		if($sql && $sql2){
 			return 'success';
 		}
 	}
@@ -385,7 +375,7 @@ class Functions
 	public static function adminCreateStat($game_id, $player_id, $points, $assists, $rebounds, $blocks, $turnovers){
 
 		$sql = "INSERT INTO player_stats(player_id, game_id, points, assists, rebounds, blocks, turn_overs) VALUES( '$player_id', '$game_id', '$points', '$assists', '$rebounds', '$blocks', '$turnovers')";
-		if(mysqli_query(DB::connect(), $sql)){
+		if(DB::insert($sql)){
 			return 'success';
 		}
 	}
@@ -396,18 +386,16 @@ class Functions
 			trigger_error('The player number you chose has been taken');
 		}
 		$sql = "INSERT INTO unpaid_memberships(first_name, last_name, email, team_id, order_type, player_number, address, phone_number, age, experience, timestamp) VALUES('$first_name', '$last_name', '$email', '$team_id', '$action', '$player_number', '$address', '$phone_number', '$age', '$experience', '$timestamp')";
-		if(mysqli_query(DB::connect(), $sql)){
+		if(DB::insert($sql)){
 			$_SESSION['record_id'] = mysqli_insert_id(DB::connect());
 			return 'success';
 		}
 	}
 
 	public static function adminReadUnpaid() {
-
-		$sql = "SELECT * FROM unpaid_memberships";
-		$result = mysqli_query(DB::connect(), $sql);
+		$result = DB::select("SELECT * FROM unpaid_memberships");
 		$output = [];
-		while($row =  mysqli_fetch_array($result)){
+		foreach($result as $row){
 			if($row['order_type'] === "joinTeam"){
 				$row['team_name'] = self::fetchPlayerTeamName($row['team_id'])['team_name'];
 			}
@@ -419,16 +407,16 @@ class Functions
 	public static function adminDeleteUnpaid($record_id){
 
 		$sql = "DELETE FROM unpaid_memberships WHERE record_id = '$record_id' AND paid = 'false'";
-		if(mysqli_query(DB::connect(), $sql)){
+		if(DB::query($sql)){
 			return 'success';
 		}
 	}
 
 	public static function createTeamFromUnpaid($team_name){
 
-		$sql = "INSERT INTO teams(team_name) VALUES('$team_name')";
-		if(mysqli_query(DB::connect(), $sql)){
-			return mysqli_insert_id(DB::connect());
+		$sql = DB::insert("INSERT INTO teams(team_name) VALUES('$team_name')");
+		if($sql){
+			return $sql;
 		}
 	}
 
@@ -441,10 +429,7 @@ class Functions
 	}
 
 	public static function getRecord($record_id){
-
-	  $sql = "SELECT * FROM unpaid_memberships WHERE record_id = '$record_id'";
-	  $result = mysqli_query(DB::connect(), $sql);
-	  return mysqli_fetch_array($result);
+	  return DB::selectOne("SELECT * FROM unpaid_memberships WHERE record_id = '$record_id'");
 	}
 
 	public static function processUnpaid($record_id){
@@ -458,7 +443,6 @@ class Functions
 		$phone_number = $record['phone_number'];
 		$age = $record['age'];
 		$experience = $record['experience'];
-
 		if($record['paid'] === "true"){
 			trigger_error('Already paid');
 		}
@@ -501,8 +485,7 @@ class Functions
 
 	public static function getAdmins()
 	{
-		$sql = "SELECT admin_id, admin_name, admin_email FROM admin_users";
-		return DB::select($sql);
+		return DB::select("SELECT admin_id, admin_name, admin_email FROM admin_users");
 	}
 
 	public static function createAdmin($admin_name, $admin_email, $password)
@@ -511,23 +494,19 @@ class Functions
 		$sql = "INSERT INTO admin_users SET admin_name = '$admin_name', admin_email = '$admin_email', password = '$password'";
 		$query = DB::insert($sql);
 		if($query){
-			return ['status'=>'success'];
-		} else {
-			return ['status'=>'error', 'message'=>$query];
+			return 'success';
 		}
 	}
 
 	public static function updateAdmin($admin_id, $admin_name, $admin_email, $password)
 	{
 		$password = password_hash($password, PASSWORD_DEFAULT);
-		$sql = "UPDATE admin_users SET admin_name = '$admin_name', admin_email = '$admin_email', password = '$password' WHERE admin_id = '$admin_id'";
-		$query = DB::query($sql);
+		$query = DB::query("UPDATE admin_users SET admin_name = '$admin_name', admin_email = '$admin_email', password = '$password' WHERE admin_id = '$admin_id'");
 		return $query;
 	}
 
 	public static function deleteAdmin($admin_id)
 	{
-		$sql = "DELETE FROM admin_users WHERE admin_id = '$admin_id'";
-		return DB::query($sql);
+		return DB::query("DELETE FROM admin_users WHERE admin_id = '$admin_id'");
 	}
 }
