@@ -27,22 +27,6 @@ $GLOBALS['dep'] =  [
  * @var [type]
  */
 $GLOBALS['error_reporting'] = false;
-$GLOBALS['DB'] =  [
-  [
-    'condition' => $_SERVER['SERVER_NAME'] === "localhost",
-    'servername' => 'localhost',
-    'username' => 'root',
-    'password' => '',
-    'db' => 'btif'
-  ],
-  [
-    'condition' => $_SERVER['SERVER_NAME'] === "app.balltillifall.ca",
-    'servername' => 'localhost',
-    'username' => 'btif_league_user',
-    'password' => '.61u?]thdf]U',
-    'db' => 'btif_league_manager'
-  ],
-];
 
 $GLOBALS['timezone'] =  'America/New_York';
 
